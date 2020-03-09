@@ -73,12 +73,10 @@
 					Class.forName("org.sqlite.JDBC");
 					Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Asus\\eclipse-workspace\\paunoticies\\WebContent\\WEB-INF\\lib\\basedades.db");
 					Statement st=conn.createStatement();
-					//boolean j=st.execute("SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'");
 					String j="SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
 					ResultSet rs = st.executeQuery(j);
 					String Countrow="";
 					%><div><%=rs %></div><div><%=usuari %></div><%
-					//if(j==false)
 					while(rs.next()){
 						Countrow=rs.getString(1);
 						%>
