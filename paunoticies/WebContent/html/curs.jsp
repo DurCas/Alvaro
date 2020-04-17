@@ -1,3 +1,6 @@
+<%@ page import = "java.util.regex.Pattern" %>
+<%@ page import = "java.util.regex.Matcher" %>
+<%@ page import="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -46,6 +49,7 @@
 <%
 	String usuari	= (String)request.getParameter("usupost");
 	String curs		= (String)request.getParameter("curs");
+	Integer c 		= Integer.parseInt(curs);
 	String pagar	= (String)request.getParameter("pagar");
 	String select[] = request.getParameterValues("idioma");
 	/*
@@ -56,37 +60,90 @@
 		}
 	}
 	*/
-%>
-	<div class="container">
-  		<div class="row">
-    		<div class="col-sm">
-      			Hola <%=usuari %>! T'has matriculat als següents cursos: 
-      		</div> 
-      	</div>
-      	<div class="row">
-      			<% 
-      			if (select != null && select.length != 0) {
-      				for (int i = 0; i < select.length; i++) {
-      				%><div class="col-sm">
-      				<!--out.println(select[i]);-->
-      				<img src="../media/<%=select[i]%>.png" alt=<%=select[i]%> class="bandera">
-      				</div><%
-      				}
-      			}
-      				%>
-      	</div>
-      	<div class="row">
-      			<% 
-      			if (select != null && select.length != 0) {
-      				for (int i = 0; i < select.length; i++) {
-      				%><div class="col-sm">
-      				<%out.println(select[i]);%>
-      				</div><%
-      				}
-      			}
-      				%>
-      	</div>
-      	
+	try {
+		Class.forName("org.sqlite.JDBC");
+		Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Asus\\eclipse-workspace\\paunoticies\\WebContent\\WEB-INF\\lib\\basedades.db");
+		Statement st=conn.createStatement();
+		String j="SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
+		ResultSet rs = st.executeQuery(j);
+		String Countrow="";
+		%><div><%=rs %></div><div><%=usuari %></div><%
+		while(rs.next()){
+			Countrow=rs.getString(1);
+			%>
+			<div><%=Countrow %></div>
+			<%
+			if(Countrow.equals("1")){
+				try {
+					//int i=st.executeUpdate("insert into prova1(nick, curs, pagament, amount)values('"+usuari+"','"+c+"','"+pagar+"', '"+0+"')");		
+				} catch(Exception e) {
+					System.out.print(e);
+					e.printStackTrace();
+				}
+				%>
+				<div class="container">
+			  		<div class="row">
+			    		<div class="col-sm">
+			      			Hola <%=usuari %>! T'has matriculat als següents cursos: 
+			      		</div> 
+			      	</div>
+			      	<div class="row">
+			      			<% 
+			      			int k=0;
+			      			if (select != null && select.length != 0) {
+			      				for (int i = 0; i < select.length; i++) {
+			      				k++;
+			      				%><div class="col-sm">
+			      				<!--out.println(select[i]);-->
+			      				<img src="../media/<%=select[i]%>.png" alt=<%=select[i]%> class="bandera">
+			      				</div><%
+			      				}
+			      				%><p>Cops de la i: <%=k%></p><%
+			      			}
+			      			try {
+			      				int max=st.executeUpdate("SELECT max(ref) from prova1");
+								//int upd=st.executeUpdate("UPDATE prova1 SET amount="+k+" WHERE nick='"+usuari+"' AND ref='"+max+"' ");
+								%><p>Valor de max: <%=max%></p><%
+							} catch(Exception e) {
+								System.out.print(e);
+								e.printStackTrace();
+							}
+			      			%>
+			      	</div>
+			      	<div class="row">
+			      			<% 
+			      			if (select != null && select.length != 0) {
+			      				for (int i = 0; i < select.length; i++) {
+			      				%><div class="col-sm">
+			      				<%out.println(select[i]);%>
+			      				</div><%
+			      				}
+			      			}
+			      			%>
+			      	</div>
+			      	<div class="row">
+    					<div class="col-sm">
+      						El nivell del curs que t'has matriculat és: <%=curs %>
+    					</div>    		
+  					</div>
+					<div class="row">
+    					<div class="col-sm">
+      						El mètode escollit de pagament és: <%=pagar %>
+    					</div>    		
+  					</div>
+  				</div>
+  			<%
+			} else {
+			%>
+				<p>Aquest usuari no existeix</p>
+			<%
+			}							
+		}
+	} catch(Exception e) {
+		System.out.print(e);
+		e.printStackTrace();
+	}
+      	%>
     <!--<div class="row">
 			<div class="col-sm">
 			  <img src="../media/UK.png" alt="GB" class="bandera">
@@ -121,16 +178,6 @@
 			  <input type="checkbox" id="idioma5" name="idioma" value="Portuguès">
 			</div>
 		</div>-->
-		<div class="row">
-    		<div class="col-sm">
-      			T'has matriculat a <%=curs %>
-    		</div>    		
-  		</div>
-		<div class="row">
-    		<div class="col-sm">
-      			El mètode escollit de pagament és <%=pagar %>
-    		</div>    		
-  		</div>
-  	</div>
+
 </body>
 </html>

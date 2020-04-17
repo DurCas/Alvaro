@@ -18,7 +18,7 @@
   		    <div class="col-sm-1">
     		</div>
     		<div class="col-sm-2">
-      			<img src="media/JDA.png" alt="JDA">
+      			<img src="../media/JDA.png" alt="JDA">
     		</div>
     		<div class="col-sm-4">
       			<h1>ESCOLA D'IDIOMES JOAN D'ÀUSTRIA</h1>
@@ -34,7 +34,7 @@
 			<div class="navbar-nav">
 				<a class="nav-item nav-link active" href="#">INICI <span class="sr-only">(current)</span></a>
 				<a class="nav-item nav-link" href="/paunoticies/html/cursos.jsp">CURSOS<i class="fas fa-arrow-right navawe"></i></a>
-				<a class="nav-item nav-link" href="cerca_pis.php">EXPERIÈNCIES ONLINE<i class="fas fa-arrow-right navawe"></i></a>
+				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<i class="fas fa-arrow-right navawe"></i></a>
 			</div>
 		</div>
 		<span class="navbar-text">

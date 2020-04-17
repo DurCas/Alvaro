@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page import = "java.util.regex.Pattern" %>
+<%@ page import = "java.util.regex.Matcher" %>
+<%@ page import="java.sql.*" %><%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -47,30 +49,55 @@
 <%
 	String usuari		= (String)request.getParameter("usuget");
 	String comentaris	= (String)request.getParameter("comment");
-	if (usuari=="" || comentaris==""){
-		
+	if (usuari=="" || comentaris==""){		
 		String redirectURL = "http://localhost:8080/paunoticies/html/cursos.jsp";
-        response.sendRedirect(redirectURL);
-		
+        response.sendRedirect(redirectURL);		
+	}
+	
+	try {
+		Class.forName("org.sqlite.JDBC");
+		Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Asus\\eclipse-workspace\\paunoticies\\WebContent\\WEB-INF\\lib\\basedades.db");
+		Statement st=conn.createStatement();
+		String j="SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
+		ResultSet rs = st.executeQuery(j);
+		String Countrow="";
+		%><div><%=rs %></div><div><%=usuari %></div><%
+		while(rs.next()){
+			Countrow=rs.getString(1);
+			%>
+			<div><%=Countrow %></div>
+			<%
+			if(Countrow.equals("1")){
+				try {
+					int i=st.executeUpdate("insert into PROVA3(nick, comments)values('"+usuari+"','"+comentaris+"')");		
+				} catch(Exception e) {
+					System.out.print(e);
+					e.printStackTrace();
+				}
+			%>
+				<div class="container">
+  					<div class="row">
+    					<div class="col-sm">
+      						Usuari: <%=usuari %>
+    					</div>    					
+  					</div>
+  					<div class="row">
+    					<div class="col-sm">
+      						Comentari: <%=comentaris %>
+    					</div>  
+  					</div>
+  				</div>
+  			<%
+			} else {
+			%>
+				<p>Aquest usuari no existeix</p>
+			<%
+			}							
+		}
+	} catch(Exception e) {
+		System.out.print(e);
+		e.printStackTrace();
 	}
 %>
-	<div class="container">
-  		<div class="row">
-    		<div class="col-sm">
-      			Usuari:
-    		</div>    
-    		<div class="col-sm">
-      			<%=usuari %>
-    		</div>   		
-  		</div>
-  		<div class="row">
-    		<div class="col-sm">
-      			Comentari:
-    		</div>     		
-    		<div class="col-sm">
-      			<%=comentaris %>
-    		</div>   		
-  		</div>
-  	</div>
 </body>
 </html>

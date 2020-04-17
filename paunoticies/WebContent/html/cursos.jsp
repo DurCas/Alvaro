@@ -31,8 +31,8 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="Portada.java">INICI <span class="sr-only">(current)</span></a>
-				<a class="nav-item nav-link" href="#">IDIOMES<i class="fas fa-arrow-right navawe"></i></a>
+				<a class="nav-item nav-link" href="portada.jsp">INICI</a>
+				<a class="nav-item nav-link active" href="#">IDIOMES<i class="fas fa-arrow-right navawe"> <span class="sr-only">(current)</span></i></a>
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<i class="fas fa-arrow-right navawe"></i></a>
 			</div>
 		</div>
@@ -127,13 +127,12 @@
 			</div>	
 			<div class="col-sm">
 				<select name="curs">
-					<option value="1r">1</option>
-					<option value="2n">2</option>
-					<option value="3rA">3A</option>
-					<option value="3rB">3B</option>
-					<option value="4t">4</option>
-					<option value="5è">5</option>
-					<option value="6è">6</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
 				</select>
 			</div>
 			<div class="col-sm">

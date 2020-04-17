@@ -31,13 +31,13 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="paunoticies/Portada.java">INICI <span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link" href="portada.jsp">INICI</a>
 				<a class="nav-item nav-link" href="/paunoticies/html/cursos.jsp">CURSOS<i class="fas fa-arrow-right navawe"></i></a>
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<i class="fas fa-arrow-right navawe"></i></a>
 			</div>
 		</div>
 		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal" href="#">LOGUEJA'T</a>
+			<a class="nav-item nav-link active"  data-toggle="modal" href="#">LOGUEJA'T<span class="sr-only">(current)</span></a>
 		</span>
 		<span class="navbar-text">
 			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/form.jsp">REGISTRA'T</a>

@@ -32,7 +32,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="portada.jsp">INICI <span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link" href="portada.jsp">INICI</a>
 				<a class="nav-item nav-link" href="/paunoticies/html/cursos.jsp">CURSOS<i class="fas fa-arrow-right navawe"></i></a>
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<i class="fas fa-arrow-right navawe"></i></a>
 			</div>
@@ -41,7 +41,7 @@
 			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/login.jsp">LOGUEJA'T</a>
 		</span>
 		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal" href="#">REGISTRA'T</a>
+			<a class="nav-item nav-link  active"  data-toggle="modal" href="#">REGISTRA'T <span class="sr-only">(current)</span></a>
 		</span>
 	</nav>
 	
@@ -57,7 +57,8 @@
     -->
     
     <div class="container">
-            <form action="Form_resposta" method="post">            
+            <!-- <form action="../../paunoticies/src/paunoticies/Form_resposta.java" method="post"> -->        
+            <form action="form_resposta.jsp" method="post">       
                 <div class="row">
                   <div class="col-sm-2">Usuari: </div>
                   <div class="col-sm-2 filamodal"><input type="text" name="usuari" required></div>
