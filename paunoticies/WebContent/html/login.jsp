@@ -1,3 +1,4 @@
+<%@ page import="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -54,14 +55,14 @@
     </table>
     -->
     
-    <form action="php/login.php" method="post">            
+    <form action="login_resposta.jsp" method="post">            
 		<div class="row">
         	<div class="col-sm-2">Usuari: </div>
-            <div class="col-sm-2 filamodal"><input type="text" name="id" pattern="[A-Za-z0-9]{3,20}" required></div>
+            <div class="col-sm-2 filamodal"><input type="text" name="usuari" pattern="[A-Za-z0-9]{3,20}" required></div>
         </div>
         <div class="row">
             <div class="col-sm-2">Contrasenya: </div>
-            <div class="col-sm-1 filaregis"><input type="password" name="contrasenya" pattern="[A-Za-z0-9]{3,20}" required></div>
+            <div class="col-sm-1 filaregis"><input type="password" name="contra" pattern="[A-Za-z0-9]{3,20}" required></div>
         </div>
         <div class="row filaregis">
         	<div class="col-sm-2"><button type="submit" class="btn btn-warning btn-modal btn-modal-enviar">Enviar</button></div>

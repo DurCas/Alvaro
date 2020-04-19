@@ -102,6 +102,9 @@
 			      			}
 			      			try {
 			      				int max=st.executeUpdate("SELECT max(ref) from prova1");
+			      				//prova execute pk no es update es consulta de select
+			      				
+			      				
 								//int upd=st.executeUpdate("UPDATE prova1 SET amount="+k+" WHERE nick='"+usuari+"' AND ref='"+max+"' ");
 								%><p>Valor de max: <%=max%></p><%
 							} catch(Exception e) {
