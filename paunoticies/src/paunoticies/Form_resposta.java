@@ -92,7 +92,7 @@ public class Form_resposta extends HttpServlet {
 		if(check==4) {
 			connect();			
 			getServletContext().getRequestDispatcher("/html/form_resposta.jsp").forward(request, response);				
-		} else if(check==1 || check==3){
+		} else if(check==1){
 			connect();	
 			getServletContext().getRequestDispatcher("/html/error_usu.jsp").forward(request, response);
 		} else if(check==2) {
