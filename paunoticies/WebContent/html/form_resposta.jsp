@@ -50,79 +50,52 @@
 	String usuari=(String)request.getParameter("usuari");
 	String contra=(String)request.getParameter("contra");
 	String mail=(String)request.getParameter("mail");
-	Pattern pat_usu = Pattern.compile("[A-Za-z0-9]{8,}");
-	Matcher mat_usu = pat_usu.matcher(usuari);
-	Pattern pat_cntr = Pattern.compile("[A-Za-z0-9]{8,}");
-	Matcher mat_cntr = pat_cntr.matcher(contra);
-	Pattern pat_mail = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+\\=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
-	Matcher mat_mail = pat_mail.matcher(mail);
-	if (!mat_usu.find()){
-		%><h1>El nick no cumpleix els requisits</h1><%
-	} else{
-		%><h1><%= usuari %></h1><%
-		if (!mat_cntr.find()){
-			%><h1>La contrasenya no cumpleix els requisits</h1>
-			<div><%= usuari %></div><%
-		} else{
-			%><h1><%= contra %></h1><%	
-			if (!mat_mail.find()){
-				%><h1>No és un email correcte</h1><%
-			} else{
-				%><h1><%= mail %></h1><%	
-				try {
-					Class.forName("org.sqlite.JDBC");
-					Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Asus\\eclipse-workspace\\paunoticies\\WebContent\\WEB-INF\\lib\\basedades.db");
-					Statement st=conn.createStatement();
-					String j="SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
-					ResultSet rs = st.executeQuery(j);
-					String Countrow="";
-					%><div><%=rs %></div><div><%=usuari %></div><%
-					while(rs.next()){
-						Countrow=rs.getString(1);
-						%>
-						<div><%=Countrow %></div><%
-						if(Countrow.equals("0")){
-							int i=st.executeUpdate("insert into users_2(nick, pass, email)values('"+usuari+"','"+contra+"','"+mail+"')");
-							%>
-							<p>Informació insertada amb èxit</p>
-							<div class="container">
-  								<div class="row">
-  		    						<div class="col-sm">
-  		    							<a href="login.jsp">LOGUEJA'T ARA</a>
-    								</div>
-  								</div>
-  								<div class="row">
-  		    						<div class="col-sm">
-  		    							<a href="portada.jsp">TORNAR A LA PORTADA</a>
-    								</div>
-  								</div>
-							</div>
-							<%
-						} else {
-							%>
-							<p>Aquest usuari ja existeix</p>
-							<div class="container">
-  								<div class="row">
-  		    						<div class="col-sm">
-  		    							<a href="form.jsp">TORNAR AL FORMULARI DE REGISTRE</a>
-    								</div>
-  								</div>
-  								<div class="row">
-  		    						<div class="col-sm">
-  		    							<a href="portada.jsp">TORNAR A LA PORTADA</a>
-    								</div>
-  								</div>
-							</div>
-							<%
-						}							
-					}
-				} catch(Exception e) {
-					System.out.print(e);
-					e.printStackTrace();
-				}				
-			} 
-		} 		
-	} 	
+	try {
+		Class.forName("org.sqlite.JDBC");
+		Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Asus\\eclipse-workspace\\paunoticies\\WebContent\\WEB-INF\\lib\\basedades.db");
+		Statement st=conn.createStatement();
+		String j="SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
+		ResultSet rs = st.executeQuery(j);
+		String Countrow="";
+		%><div><%=rs %></div><div><%=usuari %></div><%
+		while(rs.next()){
+			Countrow=rs.getString(1);
+			%><div><%=Countrow %></div><%
+			if(Countrow.equals("0")){
+				int i=st.executeUpdate("insert into users_2(nick, pass, email)values('"+usuari+"','"+contra+"','"+mail+"')");
+				%><p>Informació insertada amb èxit</p>
+				<div class="container">
+  					<div class="row">
+  		    			<div class="col-sm">
+  		    				<a href="login.jsp">LOGUEJA'T ARA</a>
+    					</div>
+  					</div>
+  					<div class="row">
+  		    			<div class="col-sm">
+  		    				<a href="portada.jsp">TORNAR A LA PORTADA</a>
+    					</div>
+  					</div>
+				</div><%
+			} else {
+				%><p>Aquest usuari ja existeix</p>
+				<div class="container">
+  					<div class="row">
+  		    			<div class="col-sm">
+  		    				<a href="form.jsp">TORNAR AL FORMULARI DE REGISTRE</a>
+    					</div>
+  					</div>
+  					<div class="row">
+  		    			<div class="col-sm">
+  		    				<a href="portada.jsp">TORNAR A LA PORTADA</a>
+    					</div>
+  					</div>
+				</div><%
+			}							
+		}
+	} catch(Exception e) {
+		System.out.print(e);
+		e.printStackTrace();
+	}	
 %>
 </body>
 </html>

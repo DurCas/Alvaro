@@ -45,6 +45,18 @@
 	</nav>
 
 	<h1>Email introduït incorrecte</h1>
+	<div class="container">
+  		<div class="row">
+  			<div class="col-sm">
+  		    	<a href="form.jsp">TORNAR AL FORMULARI DE REGISTRE</a>
+    		</div>
+  		</div>
+  		<div class="row">
+  		    <div class="col-sm">
+  		    	<a href="../Portad">TORNAR A LA PORTADA</a>
+    		</div>
+  		</div>
+	</div>
 
 </body>
 </html>

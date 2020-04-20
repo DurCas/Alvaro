@@ -45,7 +45,23 @@
 	</nav>
 
 	<h1>Contrasenya introduida de manera incorrecta</h1>
-	<h2>Assegura't que només conté números i lletres. Mínim 8 caràcters, màxim 20</h2>
+	<div class="container">
+	  	<div class="row">
+  			<div class="col-sm">
+  		    	<p>Assegura't que només conté números i lletres. Mínim 8 caràcters, màxim 20</p>
+    		</div>
+  		</div>
+  		<div class="row">
+  			<div class="col-sm">
+  		    	<a href="form.jsp">TORNAR AL FORMULARI DE REGISTRE</a>
+    		</div>
+  		</div>
+  		<div class="row">
+  		    <div class="col-sm">
+  		    	<a href="../Portad">TORNAR A LA PORTADA</a>
+    		</div>
+  		</div>
+	</div>
 
 </body>
 </html>
