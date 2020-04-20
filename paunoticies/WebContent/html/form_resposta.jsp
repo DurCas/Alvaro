@@ -57,22 +57,20 @@
 		String j="SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
 		ResultSet rs = st.executeQuery(j);
 		String Countrow="";
-		%><div><%=rs %></div><div><%=usuari %></div><%
 		while(rs.next()){
 			Countrow=rs.getString(1);
-			%><div><%=Countrow %></div><%
 			if(Countrow.equals("0")){
 				int i=st.executeUpdate("insert into users_2(nick, pass, email)values('"+usuari+"','"+contra+"','"+mail+"')");
-				%><p>Informació insertada amb èxit</p>
+				%><h1>Informació insertada amb èxit</h1>
 				<div class="container">
   					<div class="row">
   		    			<div class="col-sm">
-  		    				<a href="login.jsp">LOGUEJA'T ARA</a>
+  		    				<a href="/paunoticies/html/login.jsp">LOGUEJA'T ARA</a>
     					</div>
   					</div>
   					<div class="row">
   		    			<div class="col-sm">
-  		    				<a href="portada.jsp">TORNAR A LA PORTADA</a>
+  		    				<a href="Portada">TORNAR A LA PORTADA</a>
     					</div>
   					</div>
 				</div><%
@@ -81,12 +79,12 @@
 				<div class="container">
   					<div class="row">
   		    			<div class="col-sm">
-  		    				<a href="form.jsp">TORNAR AL FORMULARI DE REGISTRE</a>
+  		    				<a href="/paunoticies/html/form.jsp">TORNAR AL FORMULARI DE REGISTRE</a>
     					</div>
   					</div>
   					<div class="row">
   		    			<div class="col-sm">
-  		    				<a href="portada.jsp">TORNAR A LA PORTADA</a>
+  		    				<a href="Portada">TORNAR A LA PORTADA</a>
     					</div>
   					</div>
 				</div><%

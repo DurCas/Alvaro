@@ -53,12 +53,12 @@
   		</div>
   		<div class="row">
   			<div class="col-sm">
-  		    	<a href="form.jsp">TORNAR AL FORMULARI DE REGISTRE</a>
+  		    	<a href="/paunoticies/html/form.jsp">TORNAR AL FORMULARI DE REGISTRE</a>
     		</div>
   		</div>
   		<div class="row">
   		    <div class="col-sm">
-  		    	<a href="../Portad">TORNAR A LA PORTADA</a>
+  		    	<a href="Portada">TORNAR A LA PORTADA</a>
     		</div>
   		</div>
 	</div>
