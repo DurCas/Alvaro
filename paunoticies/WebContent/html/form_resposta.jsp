@@ -8,7 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>FORM RESPOSTA</title>
-	<link rel="stylesheet" href="../css/estils.css" type="text/css"></link>
+	<link rel="stylesheet" href=" css/estils.css" type="text/css"></link>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -20,7 +20,7 @@
   		    <div class="col-sm-1">
     		</div>
     		<div class="col-sm-2">
-      			<img src="../media/JDA.png" alt="JDA">
+      			<img src="media/JDA.png" alt="JDA">
     		</div>
     		<div class="col-sm-4">
       			<h1>ESCOLA D'IDIOMES JOAN D'ÀUSTRIA</h1>
@@ -34,7 +34,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="portada.jsp">INICI <span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link active" href="paunoticies/Portada.java">INICI <span class="sr-only">(current)</span></a>
 				<a class="nav-item nav-link" href="/paunoticies/html/cursos.jsp">CURSOS<i class="fas fa-arrow-right navawe"></i></a>
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<i class="fas fa-arrow-right navawe"></i></a>
 			</div>

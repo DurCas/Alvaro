@@ -31,7 +31,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link" href="portada.jsp">INICI</a>
+				<a class="nav-item nav-link" href="paunoticies/Portada.java">INICI</a>
 				<a class="nav-item nav-link active" href="#">IDIOMES<i class="fas fa-arrow-right navawe"> <span class="sr-only">(current)</span></i></a>
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<i class="fas fa-arrow-right navawe"></i></a>
 			</div>

@@ -18,7 +18,7 @@
   		    <div class="col-sm-1">
     		</div>
     		<div class="col-sm-2">
-      			<img src="../media/JDA.png" alt="JDA">
+      			<img src="/media/JDA.png" alt="JDA">
     		</div>
     		<div class="col-sm-4">
       			<h1>ESCOLA D'IDIOMES JOAN D'ÀUSTRIA</h1>

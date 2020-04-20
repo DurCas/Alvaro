@@ -18,6 +18,7 @@
   		    <div class="col-sm-1">
     		</div>
     		<div class="col-sm-2">
+    		<!-- No tocar la ruta pq no depen del .java -->
       			<img src="../media/JDA.png" alt="JDA">
     		</div>
     		<div class="col-sm-4">
@@ -32,7 +33,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link" href="portada.jsp">INICI</a>
+				<a class="nav-item nav-link" href="paunoticies/Portada.java">INICI</a>
 				<a class="nav-item nav-link" href="/paunoticies/html/cursos.jsp">CURSOS<i class="fas fa-arrow-right navawe"></i></a>
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<i class="fas fa-arrow-right navawe"></i></a>
 			</div>
@@ -44,17 +45,6 @@
 			<a class="nav-item nav-link  active"  data-toggle="modal" href="#">REGISTRA'T <span class="sr-only">(current)</span></a>
 		</span>
 	</nav>
-	
-	<!--  
-    <table>
-	    <form action="form_resposta.jsp" method="post">
-	        <tr><td><div>USUARI</td><td><input type="text" name="usuari"></input></td></div></tr>
-	        <tr><td><div>CONTRASENYA</td><td><input type="password" name="contra"></input></td></div></tr>
-	        <tr><td><div>ADREÇA ELECTRÒNICA</td><td><input type="text" name="mail"></input></td></div></tr>
-	        <tr><td><input type="submit"><input type="reset"></td></tr>
-	    </form>
-    </table>
-    -->
     
     <div class="container">
             <form action="../Form_resposta" method="post">   
@@ -65,7 +55,7 @@
                 </div>
                 <div class="row">
                    <div class="col-sm-2"></div>
-                   <div class="col-sm-10 filainfo">Lletres i números. Màxim 10.</div>
+                   <div class="col-sm-10 filainfo">Lletres i números. Mínim 8 caràcters i màxim 20.</div>
                 </div>
                 <div class="row">
                   <div class="col-sm-2">Contrasenya: </div>
@@ -73,7 +63,7 @@
                 </div>
                 <div class="row">
                    <div class="col-sm-2"></div>
-                   <div class="col-sm-10 filainfo">Lletres i números. Mínim 8</div>
+                   <div class="col-sm-10 filainfo">Lletres i números. Mínim 8 caràcters i màxim 20.</div>
                 </div>
                 <div class="row">
                   <div class="col-sm-2">Adreça electrònica: </div>

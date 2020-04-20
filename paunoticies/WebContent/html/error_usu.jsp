@@ -31,7 +31,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="#">INICI <span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link active" href="paunoticies/Portada.java">INICI <span class="sr-only">(current)</span></a>
 				<a class="nav-item nav-link" href="/paunoticies/html/cursos.jsp">CURSOS<i class="fas fa-arrow-right navawe"></i></a>
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<i class="fas fa-arrow-right navawe"></i></a>
 			</div>
@@ -44,7 +44,8 @@
 		</span>
 	</nav>
 
-	<h1>Dades introduides incorrectes</h1>
+	<h1>Nom d'usuari introduït de manera incorrecta</h1>
+	<h2>Assegura't que només conté números i lletres. Mínim 8 caràcters, màxim 20</h2>
 
 </body>
 </html>
