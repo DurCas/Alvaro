@@ -52,14 +52,6 @@
 	Integer c 		= Integer.parseInt(curs);
 	String pagar	= (String)request.getParameter("pagar");
 	String select[] = request.getParameterValues("idioma");
-	/*
-	if (select != null && select.length != 0) {
-		out.println("You have selected: ");
-		for (int i = 0; i < select.length; i++) {
-		out.println(select[i]); 
-		}
-	}
-	*/
 	try {
 		Class.forName("org.sqlite.JDBC");
 		Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Asus\\eclipse-workspace\\paunoticies\\WebContent\\WEB-INF\\lib\\basedades.db");
@@ -67,74 +59,46 @@
 		String j="SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
 		ResultSet rs = st.executeQuery(j);
 		String Countrow="";
-		%><div><%=rs %></div><div><%=usuari %></div><%
 		while(rs.next()){
 			Countrow=rs.getString(1);
 			%>
-			<div><%=Countrow %></div>
+			<div class="container">
+				<div class="row">
+			    	<div class="col-sm">
+			      		Hola <%=usuari %>! T'has matriculat als següents cursos: 
+			      	</div> 
+				</div>
+				<div class="row">
 			<%
 			if(Countrow.equals("1")){
+				int k=0;
+      			if (select != null && select.length != 0) {
+      				for (int i = 0; i < select.length; i++) {
+      				k++;
+      				%><div class="col-sm">
+      				<!--out.println(select[i]);-->
+      				<img src="../media/<%=select[i]%>.png" alt=<%=select[i]%> class="bandera">
+      				</div><%
+      				}
+      			}				
 				try {
-					//int i=st.executeUpdate("insert into prova1(nick, curs, pagament, amount)values('"+usuari+"','"+c+"','"+pagar+"', '"+0+"')");		
+					int i=st.executeUpdate("insert into prova1(nick, curs, pagament, quantity, amount)values('"+usuari+"','"+c+"','"+pagar+"','"+k+"', '"+0+"')");		
 				} catch(Exception e) {
 					System.out.print(e);
 					e.printStackTrace();
 				}
 				%>
-				<div class="container">
-			  		<div class="row">
-			    		<div class="col-sm">
-			      			Hola <%=usuari %>! T'has matriculat als següents cursos: 
-			      		</div> 
-			      	</div>
-			      	<div class="row">
-			      			<% 
-			      			int k=0;
-			      			if (select != null && select.length != 0) {
-			      				for (int i = 0; i < select.length; i++) {
-			      				k++;
-			      				%><div class="col-sm">
-			      				<!--out.println(select[i]);-->
-			      				<img src="../media/<%=select[i]%>.png" alt=<%=select[i]%> class="bandera">
-			      				</div><%
-			      				}
-			      				%><p>Cops de la i: <%=k%></p><%
-			      			}
-			      			try {
-			      				int max=st.executeUpdate("SELECT max(ref) from prova1");
-			      				//prova execute pk no es update es consulta de select
-			      				
-			      				
-								//int upd=st.executeUpdate("UPDATE prova1 SET amount="+k+" WHERE nick='"+usuari+"' AND ref='"+max+"' ");
-								%><p>Valor de max: <%=max%></p><%
-							} catch(Exception e) {
-								System.out.print(e);
-								e.printStackTrace();
-							}
-			      			%>
-			      	</div>
-			      	<div class="row">
-			      			<% 
-			      			if (select != null && select.length != 0) {
-			      				for (int i = 0; i < select.length; i++) {
-			      				%><div class="col-sm">
-			      				<%out.println(select[i]);%>
-			      				</div><%
-			      				}
-			      			}
-			      			%>
-			      	</div>
-			      	<div class="row">
-    					<div class="col-sm">
-      						El nivell del curs que t'has matriculat és: <%=curs %>
-    					</div>    		
-  					</div>
-					<div class="row">
-    					<div class="col-sm">
-      						El mètode escollit de pagament és: <%=pagar %>
-    					</div>    		
-  					</div>
+				<div class="row">
+					<div class="col-sm">
+      					El nivell del curs que t'has matriculat és: <%=curs %>
+    				</div>    		
   				</div>
+				<div class="row">
+    				<div class="col-sm">
+      					El mètode escollit de pagament és: <%=pagar %>
+    				</div>    		
+  				</div>
+  			</div>
   			<%
 			} else {
 			%>
@@ -146,41 +110,6 @@
 		System.out.print(e);
 		e.printStackTrace();
 	}
-      	%>
-    <!--<div class="row">
-			<div class="col-sm">
-			  <img src="../media/UK.png" alt="GB" class="bandera">
-			</div>
-			<div class="col-sm">
-			  <img src="../media/France.png" alt="FRA" class="bandera">
-			</div>
-			<div class="col-sm">
-			  <img src="../media/Germany.png" alt="ALE" class="bandera">
-			</div>
-			<div class="col-sm">
-			  <img src="../media/Italy.png" alt="IT" class="bandera">
-			</div>    
-			<div class="col-sm">
-			  <img src="../media/Portugal.png" alt="POR" class="bandera">
-			</div>
-		  </div>
-		  <div class="row">
-			<div class="col-sm checkbandera">
-			  <input type="checkbox" id="idioma1" name="idioma" value="Anglès">
-			</div>
-			<div class="col-sm checkbandera">
-			  <input type="checkbox" id="idioma2" name="idioma" value="Francès">
-			</div>
-			<div class="col-sm checkbandera">
-			  <input type="checkbox" id="idioma3" name="idioma" value="Alemany">
-			</div>
-			<div class="col-sm checkbandera">
-			  <input type="checkbox" id="idioma4" name="idioma" value="Italià">
-			</div>    
-			<div class="col-sm checkbandera">
-			  <input type="checkbox" id="idioma5" name="idioma" value="Portuguès">
-			</div>
-		</div>-->
-
+%>
 </body>
 </html>
