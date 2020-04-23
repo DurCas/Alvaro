@@ -1,7 +1,6 @@
 package paunoticies;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Portada
+ * Servlet implementation class Curs
  */
 @WebServlet("/Curs")
 public class Curs extends HttpServlet {
@@ -23,6 +22,36 @@ public class Curs extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
+	
+	/**
+	 * Els noms de les taules són users_2 i purchases_2 (DE MOMENT prova4) i purchases_3 (DE MOMENT PROVA3)
+	 * Crear la taula purchases
+	 * @author Pau
+	 * create table prova4(
+	    ref integer primary key AUTOINCREMENT,
+	    nick varchar(20),
+	    curs varchar(100),
+	    pagament varchar(10),
+	    ang int(1),
+	    fra int(1),
+	    ale int(1),
+	    ita int(1),
+	    por int(1),
+	    quantity int(1),
+	    amount int(1),
+	    CONSTRAINT FK_nick FOREIGN KEY (nick)
+	    REFERENCES users_2(nick)
+		);
+		
+		create table purchases_3(
+	    ref integer primary key AUTOINCREMENT,
+	    nick varchar(20),
+	    comments varchar(200),
+	    CONSTRAINT FK_nick FOREIGN KEY (nick)
+	    REFERENCES users_2(nick)
+		);
+	 */
+	
     public Curs() {
         super();
         // TODO Auto-generated constructor stub
@@ -101,7 +130,7 @@ public class Curs extends HttpServlet {
 			      				k++;
 			      			}
 			      		} try {
-							int i=st.executeUpdate("insert into prova1(nick, curs, pagament, quantity, amount)values('"+usuari+"','"+c+"','"+pagar+"','"+k+"', '"+0+"')");		
+							int i=st.executeUpdate("insert into prova4(nick, curs, pagament, quantity, amount)values('"+usuari+"','"+c+"','"+pagar+"','"+k+"', '"+0+"')");		
 						} catch(Exception e) {
 							System.out.print(e);
 							e.printStackTrace();

@@ -1,6 +1,12 @@
 package paunoticies;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,21 +14,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.util.regex.*;
-import java.sql.*;
-
 /**
- * Servlet implementation class Form_resposta
+ * Servlet implementation class Login
  */
-@WebServlet("/Form_resposta")
-public class Form_resposta extends HttpServlet {
+@WebServlet("/Login")
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
 	
-    public Form_resposta() {
+    public Login() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,23 +41,19 @@ public class Form_resposta extends HttpServlet {
 			e.printStackTrace();
 		}
 		return st;	
-	}
-
-	public int check_regex(String usuari, String contra, String mail){	
+	}	
+	
+	public int check_regex(String usuari, String contra){	
 		Pattern pat_usu = Pattern.compile("[A-Za-z0-9]{8,}");
 		Matcher mat_usu = pat_usu.matcher(usuari);
 		Pattern pat_cntr = Pattern.compile("[A-Za-z0-9]{8,}");
 		Matcher mat_cntr = pat_cntr.matcher(contra);
-		Pattern pat_mail = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+\\=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
-		Matcher mat_mail = pat_mail.matcher(mail);
 		if (!mat_usu.find()){
 			return 1;
 		} else if (!mat_cntr.find()){
 			return 2;
-		} else if (!mat_mail.find()) {
-			return 3;
 		} else {
-			return 4;
+			return 3;
 		}
 	}
 
@@ -65,21 +64,19 @@ public class Form_resposta extends HttpServlet {
 		// TODO Auto-generated method stub
 		String usuari=(String)request.getParameter("usuari");
 		String contra=(String)request.getParameter("contra");
-		String mail=(String)request.getParameter("mail");
-		int check=check_regex(usuari, contra, mail);
-		if(check==4) {
+		int check=check_regex(usuari, contra);
+		if(check==3) {
 			try {
 				Statement st	=	connect();
-				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
+				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"' AND pass='"+contra+"'";
 				ResultSet rs 	= 	st.executeQuery(j);
 				String Countrow	=	"";
 				while(rs.next()){
 					Countrow=rs.getString(1);
-					if(Countrow.equals("0")){
-						int i=st.executeUpdate("insert into users_2(nick, pass, email)values('"+usuari+"','"+contra+"','"+mail+"')");
-						getServletContext().getRequestDispatcher("/html/form_resposta.jsp").forward(request, response);		
+					if(Countrow.equals("1")){
+						getServletContext().getRequestDispatcher("/html/login_resposta.jsp").forward(request, response);		
 					} else {
-						getServletContext().getRequestDispatcher("/html/form_resposta_error.jsp").forward(request, response);		
+						getServletContext().getRequestDispatcher("/html/login_resposta_error.jsp").forward(request, response);		
 					}
 				}
 			} catch(Exception e) {
@@ -88,15 +85,12 @@ public class Form_resposta extends HttpServlet {
 			}	
 		} else if(check==1){
 			connect();	
-			getServletContext().getRequestDispatcher("/html/error_usu.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/html/login_error_usu.jsp").forward(request, response);
 		} else if(check==2) {
 			connect();	
-			getServletContext().getRequestDispatcher("/html/error_cntr.jsp").forward(request, response);
-		} else if(check==3) {
-			connect();	
-			getServletContext().getRequestDispatcher("/html/error_mail.jsp").forward(request, response);
-		}	
-	}
+			getServletContext().getRequestDispatcher("/html/login_error_cntr.jsp").forward(request, response);
+		} 
+	}	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
