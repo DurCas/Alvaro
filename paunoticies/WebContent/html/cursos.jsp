@@ -35,13 +35,24 @@
 				<a class="nav-item nav-link active" href="#">IDIOMES<i class="fas fa-arrow-right navawe"> <span class="sr-only">(current)</span></i></a>
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<i class="fas fa-arrow-right navawe"></i></a>
 			</div>
-		</div>
+		</div>		
+		<%
+		if (session != null) { %>
+		<span class="navbar-text">
+			<a class="nav-item nav-link"  data-toggle="modal">${sessionScope.usuari}</a>
+		</span>
+		<span class="navbar-text">
+			<a class="nav-item nav-link"  data-toggle="modal" href="#">SORTIR</a>
+		</span>
+		<% } else { %>
 		<span class="navbar-text">
 			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/login.jsp">LOGUEJA'T</a>
 		</span>
 		<span class="navbar-text">
 			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/form.jsp">REGISTRA'T</a>
 		</span>
+		<% }
+		%>
 	</nav>
 	
 	<form method="POST" action="../Curs">
@@ -116,12 +127,20 @@
 
 		<div class="container containerusu">
 		  <div class="row">
+			<%
+			if (session != null) { %>
+			<div class="col-sm-2">
+				Usuari: ${sessionScope.usuari}
+			</div>	
+			<% } else { %>
 			<div class="col-sm-2">
 				Nom d'usuari:
 			</div>	
 			<div class="col-sm">			
 				<input type="text" id="usupost" name="usupost">
 			</div>	
+			<% }
+			%>	
 			<div class="col-sm-2">
 				Curs:
 			</div>	
@@ -145,12 +164,20 @@
 	<form method="GET" action="../Curs">
 		<div class="container">
 			<div class="row rowform">
+				<%
+				if (session != null) { %>
+				<div class="col-sm-2">
+					Usuari: ${sessionScope.usuari}
+				</div>	
+				<% } else { %>
 				<div class="col-sm-2">
 					Nom d'usuari:
-				</div>
-				<div class="col-sm">
-					<input type="text" id="usuget" name="usuget">
-				</div>
+				</div>	
+				<div class="col-sm">			
+					<input type="text" id="usupost" name="usupost">
+				</div>	
+				<% }
+				%>	
 				<div class="col-sm-2">
 					Comentaris:
 				</div>

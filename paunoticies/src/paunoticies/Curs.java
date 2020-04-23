@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Curs
@@ -75,6 +76,12 @@ public class Curs extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		/*HttpSession sesion = request.getSession(true);
+		if((sesion != null)) {
+			String usuari		= sesion;
+		} else {
+			String usuari		= (String)request.getParameter("usuget");
+		}*/
 		String usuari		= (String)request.getParameter("usuget");
 		String comentaris	= (String)request.getParameter("comment");
 		if (usuari=="" || comentaris==""){		
@@ -107,6 +114,12 @@ public class Curs extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		/*HttpSession sesion = request.getSession(true);
+		if((sesion != null)) {
+			String usuari		= sesion;
+		} else {
+			String usuari		= (String)request.getParameter("usuget");
+		}*/
 		String usuari	= (String)request.getParameter("usupost");
 		String curs		= (String)request.getParameter("curs");
 		Integer c 		= Integer.parseInt(curs);

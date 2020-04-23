@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Login
@@ -74,6 +75,8 @@ public class Login extends HttpServlet {
 				while(rs.next()){
 					Countrow=rs.getString(1);
 					if(Countrow.equals("1")){
+						HttpSession sesion = request.getSession(true);
+						sesion.setAttribute("usuari", usuari);
 						getServletContext().getRequestDispatcher("/html/login_resposta.jsp").forward(request, response);		
 					} else {
 						getServletContext().getRequestDispatcher("/html/login_resposta_error.jsp").forward(request, response);		

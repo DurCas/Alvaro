@@ -38,15 +38,40 @@
 				<a class="nav-item nav-link" href="/paunoticies/html/cursos.jsp">CURSOS<i class="fas fa-arrow-right navawe"></i></a>
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<i class="fas fa-arrow-right navawe"></i></a>
 			</div>
-		</div>
+		</div>		
+		<%
+		if (session != null) { %>
+		<span class="navbar-text">
+			<a class="nav-item nav-link"  data-toggle="modal">${sessionScope.usuari}</a>
+		</span>
+		<span class="navbar-text">
+			<a class="nav-item nav-link"  data-toggle="modal" href="#">SORTIR</a>
+		</span>
+		<% } else { %>
 		<span class="navbar-text">
 			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/login.jsp">LOGUEJA'T</a>
 		</span>
 		<span class="navbar-text">
 			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/form.jsp">REGISTRA'T</a>
 		</span>
+		<% }
+		%>
 	</nav>
 	
+	<h1>Benvingut ${sessionScope.usuari}</h1>
+	
+	<div class="container">
+  		<div class="row">
+  			<div class="col-sm">
+  		    	<a href="Portada">TORNAR A LA PORTADA</a>
+    		</div>
+  		</div>
+  		<div class="row">
+  			<div class="col-sm">
+  		    	<a href="/paunoticies/html/cursos.jsp">REGISTRA'T ALS NOSTRES CURSOS</a>
+    		</div>
+  		</div>
+	</div>	
 	
 </body>
 </html>
