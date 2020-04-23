@@ -142,7 +142,7 @@
 		</div>
 	</form>
 
-	<form method="GET" action="comentari.jsp">
+	<form method="GET" action="../Curs">
 		<div class="container">
 			<div class="row rowform">
 				<div class="col-sm-2">

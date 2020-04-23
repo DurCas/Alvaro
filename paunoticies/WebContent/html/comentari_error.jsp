@@ -46,22 +46,15 @@
 		</span>
 	</nav>
 
-<%
-	String usuari		= (String)request.getParameter("usuget");
-	String comentaris	= (String)request.getParameter("comment");
-%>
+	<h1>Aquest usuari no existeix</h1>
+	
 	<div class="container">
   		<div class="row">
-    		<div class="col-sm">
-      			Usuari: <%=usuari %>
-    		</div>    					
+  			<div class="col-sm">
+  		    	<a href="/paunoticies/html/cursos.jsp">TORNAR AL FORMULARI D'INSCRIPCIÓ DE CURSOS</a>
+    		</div>
   		</div>
-  		<div class="row">
-    		<div class="col-sm">
-      			Comentari: <%=comentaris %>
-    		</div>  
-  		</div>
-  	</div>
-  	
+	</div>
+
 </body>
 </html>
