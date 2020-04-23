@@ -50,22 +50,20 @@ public class Form_resposta extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
-	public boolean connect(){
+	public Statement connect(){
+		Statement st=null;
 		try {
 			Class.forName("org.sqlite.JDBC");
 			Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Asus\\eclipse-workspace\\paunoticies\\WebContent\\WEB-INF\\lib\\basedades.db");
-			Statement st=conn.createStatement();		
+			st=conn.createStatement();		
 		} catch(Exception e) {
 			System.out.print(e);
 			e.printStackTrace();
 		}
-		return true;	
+		return st;	
 	}
 
-	public int check_regex(HttpServletRequest request){		
-		String usuari=(String)request.getParameter("usuari");
-		String contra=(String)request.getParameter("contra");
-		String mail=(String)request.getParameter("mail");
+	public int check_regex(String usuari, String contra, String mail){	
 		Pattern pat_usu = Pattern.compile("[A-Za-z0-9]{8,}");
 		Matcher mat_usu = pat_usu.matcher(usuari);
 		Pattern pat_cntr = Pattern.compile("[A-Za-z0-9]{8,}");
@@ -88,10 +86,29 @@ public class Form_resposta extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int check=check_regex(request);
+		String usuari=(String)request.getParameter("usuari");
+		String contra=(String)request.getParameter("contra");
+		String mail=(String)request.getParameter("mail");
+		int check=check_regex(usuari, contra, mail);
 		if(check==4) {
-			connect();			
-			getServletContext().getRequestDispatcher("/html/form_resposta.jsp").forward(request, response);				
+			try {
+				Statement st	=	connect();
+				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
+				ResultSet rs 	= 	st.executeQuery(j);
+				String Countrow	=	"";
+				while(rs.next()){
+					Countrow=rs.getString(1);
+					if(Countrow.equals("0")){
+						int i=st.executeUpdate("insert into users_2(nick, pass, email)values('"+usuari+"','"+contra+"','"+mail+"')");
+						getServletContext().getRequestDispatcher("/html/form_resposta.jsp").forward(request, response);		
+					} else {
+						getServletContext().getRequestDispatcher("/html/form_resposta_error.jsp").forward(request, response);		
+					}
+				}
+			} catch(Exception e) {
+				System.out.print(e);
+				e.printStackTrace();
+			}	
 		} else if(check==1){
 			connect();	
 			getServletContext().getRequestDispatcher("/html/error_usu.jsp").forward(request, response);

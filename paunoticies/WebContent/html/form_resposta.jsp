@@ -46,54 +46,21 @@
 			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/form.jsp">REGISTRA'T</a>
 		</span>
 	</nav>
-<%
-	String usuari=(String)request.getParameter("usuari");
-	String contra=(String)request.getParameter("contra");
-	String mail=(String)request.getParameter("mail");
-	try {
-		Class.forName("org.sqlite.JDBC");
-		Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Asus\\eclipse-workspace\\paunoticies\\WebContent\\WEB-INF\\lib\\basedades.db");
-		Statement st=conn.createStatement();
-		String j="SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
-		ResultSet rs = st.executeQuery(j);
-		String Countrow="";
-		while(rs.next()){
-			Countrow=rs.getString(1);
-			if(Countrow.equals("0")){
-				int i=st.executeUpdate("insert into users_2(nick, pass, email)values('"+usuari+"','"+contra+"','"+mail+"')");
-				%><h1>Informació insertada amb èxit</h1>
-				<div class="container">
-  					<div class="row">
-  		    			<div class="col-sm">
-  		    				<a href="/paunoticies/html/login.jsp">LOGUEJA'T ARA</a>
-    					</div>
-  					</div>
-  					<div class="row">
-  		    			<div class="col-sm">
-  		    				<a href="Portada">TORNAR A LA PORTADA</a>
-    					</div>
-  					</div>
-				</div><%
-			} else {
-				%><p>Aquest usuari ja existeix</p>
-				<div class="container">
-  					<div class="row">
-  		    			<div class="col-sm">
-  		    				<a href="/paunoticies/html/form.jsp">TORNAR AL FORMULARI DE REGISTRE</a>
-    					</div>
-  					</div>
-  					<div class="row">
-  		    			<div class="col-sm">
-  		    				<a href="Portada">TORNAR A LA PORTADA</a>
-    					</div>
-  					</div>
-				</div><%
-			}							
-		}
-	} catch(Exception e) {
-		System.out.print(e);
-		e.printStackTrace();
-	}	
-%>
+
+	<h1>Informació insertada amb èxit</h1>
+	
+	<div class="container">
+  		<div class="row">
+  			<div class="col-sm">
+  		    	<a href="/paunoticies/html/login.jsp">LOGUEJA'T ARA</a>
+    		</div>
+  		</div>
+  		<div class="row">
+  			<div class="col-sm">
+  		    	<a href="Portada">TORNAR A LA PORTADA</a>
+    		</div>
+  		</div>
+	</div>
+
 </body>
 </html>

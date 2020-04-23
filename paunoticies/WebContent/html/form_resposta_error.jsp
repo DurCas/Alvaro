@@ -1,3 +1,6 @@
+<%@ page import = "java.util.regex.Pattern" %>
+<%@ page import = "java.util.regex.Matcher" %>
+<%@ page import="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -5,7 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>FORM RESPOSTA</title>
-	<link rel="stylesheet" href="css/estils.css" type="text/css"></link>
+	<link rel="stylesheet" href=" css/estils.css" type="text/css"></link>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -25,6 +28,7 @@
     		
   		</div>
 	</div>
+	
 	<nav class="navbar navbar-expand-lg navbar-light sticky-top">
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -43,14 +47,10 @@
 			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/form.jsp">REGISTRA'T</a>
 		</span>
 	</nav>
-
-	<h1>Email introduït incorrecte</h1>
+	
+	<h1>Aquest usuari ja existeix</h1>
+	
 	<div class="container">
-		<div class="row">
-  			<div class="col-sm">
-  		    	<p>Assegura't que l'email escrit segueix un format correcte</p>
-    		</div>
-  		</div>
   		<div class="row">
   			<div class="col-sm">
   		    	<a href="/paunoticies/html/form.jsp">TORNAR AL FORMULARI DE REGISTRE</a>
@@ -58,10 +58,10 @@
   		</div>
   		<div class="row">
   		    <div class="col-sm">
-  		    	<a href="../Portada">TORNAR A LA PORTADA</a>
+  		    	<a href="Portada">TORNAR A LA PORTADA</a>
     		</div>
   		</div>
 	</div>
-
+	
 </body>
 </html>
