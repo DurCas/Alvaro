@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>PORTADA</title>
-	<link rel="stylesheet" href="ss/estils.css" type="text/css"></link>
+	<link rel="stylesheet" href="css/estils.css" type="text/css"></link>
 	<link rel="stylesheet" href="css/estils.css" type="text/css"></link>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
@@ -40,17 +40,17 @@
 		<%
 		if (session != null) { %>
 		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal">${sessionScope.usuari}</a>
-		</span>
-		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal" href="#">SORTIR</a>
-		</span>
-		<% } else { %>
-		<span class="navbar-text">
 			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/login.jsp">LOGUEJA'T</a>
 		</span>
 		<span class="navbar-text">
 			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/form.jsp">REGISTRA'T</a>
+		</span>
+		<% } else { %>
+		<span class="navbar-text">
+			<a class="nav-item nav-link"  data-toggle="modal">${sessionScope.usuari}</a>
+		</span>
+		<span class="navbar-text">
+			<a class="nav-item nav-link"  data-toggle="modal" href="../Logout">SORTIR</a>
 		</span>
 		<% }
 		%>

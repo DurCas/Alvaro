@@ -34,7 +34,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="../Portada">INICI <span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link active" href="/Portada">INICI <span class="sr-only">(current)</span></a>
 				<a class="nav-item nav-link" href="/paunoticies/html/cursos.jsp">CURSOS<i class="fas fa-arrow-right navawe"></i></a>
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<i class="fas fa-arrow-right navawe"></i></a>
 			</div>
@@ -42,17 +42,17 @@
 		<%
 		if (session != null) { %>
 		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal">${sessionScope.usuari}</a>
-		</span>
-		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal" href="#">SORTIR</a>
-		</span>
-		<% } else { %>
-		<span class="navbar-text">
 			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/login.jsp">LOGUEJA'T</a>
 		</span>
 		<span class="navbar-text">
 			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/form.jsp">REGISTRA'T</a>
+		</span>
+		<% } else { %>
+		<span class="navbar-text">
+			<a class="nav-item nav-link"  data-toggle="modal">${sessionScope.usuari}</a>
+		</span>
+		<span class="navbar-text">
+			<a class="nav-item nav-link"  data-toggle="modal" href="../Logout">SORTIR</a>
 		</span>
 		<% }
 		%>
