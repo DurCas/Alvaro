@@ -1,7 +1,6 @@
 <%@ page import = "java.util.regex.Pattern" %>
 <%@ page import = "java.util.regex.Matcher" %>
-<%@ page import="java.sql.*" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page import="java.sql.*" %><%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -34,7 +33,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="../Portada">INICI <span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link active" href="paunoticies/Portada.java">INICI <span class="sr-only">(current)</span></a>
 				<a class="nav-item nav-link" href="/paunoticies/html/cursos.jsp">CURSOS<i class="fas fa-arrow-right navawe"></i></a>
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<i class="fas fa-arrow-right navawe"></i></a>
 			</div>
@@ -46,29 +45,16 @@
 			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/form.jsp">REGISTRA'T</a>
 		</span>
 	</nav>
-<%
-	String usuari	= (String)request.getParameter("usupost");
-	String curs		= (String)request.getParameter("curs");
-	Integer c 		= Integer.parseInt(curs);
-	String pagar	= (String)request.getParameter("pagar");
-	String select[] = request.getParameterValues("idioma");
-%>
+
+	<h1>Aquest usuari no existeix</h1>
+	
 	<div class="container">
-		<div class="row">
-			<div class="col-sm">
-				Benvingut <%=usuari %>! Ja t'has matriculat correctament 
-			</div> 
-		</div>
-		<div class="row">
-			<div class="col-sm">
-      			El nivell del curs que t'has matriculat és: <%=curs %>
-    		</div>    		
+  		<div class="row">
+  			<div class="col-sm">
+  		    	<a href="/paunoticies/html/cursos.jsp">TORNAR AL FORMULARI D'INSCRIPCIÓ DE CURSOS</a>
+    		</div>
   		</div>
-		<div class="row">
-    		<div class="col-sm">
-      			El mètode escollit de pagament és: <%=pagar %>
-    		</div>    		
-  		</div>
-  	</div>
+	</div>
+
 </body>
 </html>

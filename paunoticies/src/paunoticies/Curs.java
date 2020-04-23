@@ -46,31 +46,31 @@ public class Curs extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-				String usuari		= (String)request.getParameter("usuget");
-				String comentaris	= (String)request.getParameter("comment");
-				if (usuari=="" || comentaris==""){		
-					String redirectURL = "http://localhost:8080/paunoticies/html/cursos.jsp";
-			        response.sendRedirect(redirectURL);		
-				} else {
-					try {
-						Statement st	=	connect();
-						String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
-						ResultSet rs 	= 	st.executeQuery(j);
-						String Countrow	=	"";
-						while(rs.next()){
-							Countrow=rs.getString(1);
-							if(Countrow.equals("1")){
-								int i=st.executeUpdate("insert into PROVA3(nick, comments)values('"+usuari+"','"+comentaris+"')");
-								getServletContext().getRequestDispatcher("/html/comentari.jsp").forward(request, response);		
-							} else {
-								getServletContext().getRequestDispatcher("/html/comentari_error.jsp").forward(request, response);		
-							}
-						}
-					} catch(Exception e) {
-						System.out.print(e);
-						e.printStackTrace();
+		String usuari		= (String)request.getParameter("usuget");
+		String comentaris	= (String)request.getParameter("comment");
+		if (usuari=="" || comentaris==""){		
+			String redirectURL = "http://localhost:8080/paunoticies/html/cursos.jsp";
+		response.sendRedirect(redirectURL);		
+		} else {
+			try {
+				Statement st	=	connect();
+				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
+				ResultSet rs 	= 	st.executeQuery(j);
+				String Countrow	=	"";
+				while(rs.next()){
+					Countrow=rs.getString(1);
+					if(Countrow.equals("1")){
+						int i=st.executeUpdate("insert into PROVA3(nick, comments)values('"+usuari+"','"+comentaris+"')");
+						getServletContext().getRequestDispatcher("/html/comentari.jsp").forward(request, response);		
+					} else {
+						getServletContext().getRequestDispatcher("/html/comentari_error.jsp").forward(request, response);		
 					}
 				}
+			} catch(Exception e) {
+				System.out.print(e);
+				e.printStackTrace();
+			}
+		}
 	}
 
 	/**
@@ -78,6 +78,43 @@ public class Curs extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		getServletContext().getRequestDispatcher("/html/curs.jsp").forward(request, response);
+		String usuari	= (String)request.getParameter("usupost");
+		String curs		= (String)request.getParameter("curs");
+		Integer c 		= Integer.parseInt(curs);
+		String pagar	= (String)request.getParameter("pagar");
+		String select[] = request.getParameterValues("idioma");
+		if (usuari=="" || curs=="" || pagar==""){		
+			String redirectURL = "http://localhost:8080/paunoticies/html/cursos.jsp";
+		response.sendRedirect(redirectURL);		
+		} else {
+			try {
+				Statement st	=	connect();
+				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
+				ResultSet rs 	= 	st.executeQuery(j);
+				String Countrow	=	"";
+				while(rs.next()){
+					Countrow=rs.getString(1);
+					if(Countrow.equals("1")){
+						int k=0;
+			      		if (select != null && select.length != 0) {
+			      			for (int i = 0; i < select.length; i++) {
+			      				k++;
+			      			}
+			      		} try {
+							int i=st.executeUpdate("insert into prova1(nick, curs, pagament, quantity, amount)values('"+usuari+"','"+c+"','"+pagar+"','"+k+"', '"+0+"')");		
+						} catch(Exception e) {
+							System.out.print(e);
+							e.printStackTrace();
+						}
+						getServletContext().getRequestDispatcher("/html/curs.jsp").forward(request, response);		
+					} else {
+						getServletContext().getRequestDispatcher("/html/curs_error.jsp").forward(request, response);		
+					}
+				}
+			} catch(Exception e) {
+				System.out.print(e);
+				e.printStackTrace();
+			}
+		}	
 	}
 }

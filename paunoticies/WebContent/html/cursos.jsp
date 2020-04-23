@@ -44,7 +44,7 @@
 		</span>
 	</nav>
 	
-	<form method="POST" action="curs.jsp">
+	<form method="POST" action="../Curs">
 		<div class="container">
 		  <div class="row">
 			<div class="col-sm">
