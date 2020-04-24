@@ -33,11 +33,6 @@ public class Curs extends HttpServlet {
 	    nick varchar(20),
 	    curs varchar(100),
 	    pagament varchar(10),
-	    ang int(1),
-	    fra int(1),
-	    ale int(1),
-	    ita int(1),
-	    por int(1),
 	    quantity int(1),
 	    amount int(1),
 	    CONSTRAINT FK_nick FOREIGN KEY (nick)

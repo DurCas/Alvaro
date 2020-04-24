@@ -37,8 +37,8 @@ public class Logout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(false);
-		// session.setAttribute("user", null);
-		session.removeAttribute("usuari");
+		session.setAttribute("usuari", null);
+		//session.removeAttribute("usuari");
 		session.getMaxInactiveInterval();
 		getServletContext().getRequestDispatcher("/html/logout.jsp").forward(request, response);	
 	}	
