@@ -60,6 +60,7 @@
 	</nav>
 
 	<h1>Usuari registrat amb èxit</h1>
+	<h1>Usuari registrat amb èxit</h1>
 	
 	<div class="container">
   		<div class="row">
