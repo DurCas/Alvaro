@@ -32,8 +32,8 @@
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
 				<a class="nav-item nav-link" href="../Portada">INICI</a>
-				<a class="nav-item nav-link active" href="#">IDIOMES<i class="fas fa-arrow-right navawe"> <span class="sr-only">(current)</span></i></a>
-				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<i class="fas fa-arrow-right navawe"></i></a>
+				<a class="nav-item nav-link active" href="#">IDIOMES<em class="fas fa-arrow-right navawe"> <span class="sr-only">(current)</span></em></a>
+				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<em class="fas fa-arrow-right navawe"></em></a>
 			</div>
 		</div>		
 		<%
