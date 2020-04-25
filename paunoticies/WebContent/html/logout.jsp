@@ -5,7 +5,6 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>LOGOUT</title>
-	<link rel="stylesheet" href="ss/estils.css" type="text/css"></link>
 	<link rel="stylesheet" href="css/estils.css" type="text/css"></link>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
@@ -13,19 +12,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body>   
-    <div class="container-head">
-  		<div class="row">
-  		    <div class="col-sm-1">
-    		</div>
-    		<div class="col-sm-2">
-      			<img src="media/JDA.png" alt="JDA">
-    		</div>
-    		<div class="col-sm-4">
-      			<h1>ESCOLA D'IDIOMES JOAN D'ÀUSTRIA</h1>
-    		</div>
-    		
-  		</div>
-	</div>
+    <jsp:include page="include/imatgejava.jsp" />
 	<nav class="navbar navbar-expand-lg navbar-light sticky-top">
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -37,7 +24,7 @@
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<em class="fas fa-arrow-right navawe"></em></a>
 			</div>
 		</div>
-	<jsp:include page="sessioiniciadajava.jsp" /> 
+	<jsp:include page="include/sessioiniciadajava.jsp" /> 
 	</nav>
 
 	<h1>Torna aviat! T'esperem</h1>

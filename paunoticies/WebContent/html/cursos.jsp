@@ -36,7 +36,7 @@
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<em class="fas fa-arrow-right navawe"></em></a>
 			</div>
 		</div>		
-		<jsp:include page="sessioiniciada.jsp" /> 
+		<jsp:include page="include/sessioiniciada.jsp" /> 
 	</nav>
 	
 	<form method="POST" action="../Curs">
