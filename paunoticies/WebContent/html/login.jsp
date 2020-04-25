@@ -37,24 +37,7 @@
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<em class="fas fa-arrow-right navawe"></em></a>
 			</div>
 		</div>
-		<% if (session != null) { 
-		%>
-		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal">${sessionScope.usuari}</a>
-		</span>
-		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal" href="../Logout">SORTIR</a>
-		</span>
-		<% } else { 
-		%>
-		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/login.jsp">LOGUEJA'T</a>
-		</span>
-		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/form.jsp">REGISTRA'T</a>
-		</span>
-		<% }
-		%>
+	<jsp:include page="sessioiniciada.jsp" /> 
 	</nav>
 	   
     <form action="../Login" method="post">            

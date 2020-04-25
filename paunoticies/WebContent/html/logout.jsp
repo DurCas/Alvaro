@@ -4,7 +4,7 @@
 <html lang="ca">
 <head>
 <meta charset="ISO-8859-1">
-<title>PORTADA</title>
+<title>LOGOUT</title>
 	<link rel="stylesheet" href="ss/estils.css" type="text/css"></link>
 	<link rel="stylesheet" href="css/estils.css" type="text/css"></link>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -32,29 +32,12 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="../Portada">INICI <span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link active" href="Portada">INICI <span class="sr-only">(current)</span></a>
 				<a class="nav-item nav-link" href="/paunoticies/html/cursos.jsp">CURSOS<em class="fas fa-arrow-right navawe"></em></a>
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<em class="fas fa-arrow-right navawe"></em></a>
 			</div>
 		</div>
-		<% if (session != null) { 
-		%>
-		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal">${sessionScope.usuari}</a>
-		</span>
-		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal" href="../Logout">SORTIR</a>
-		</span>
-		<% } else { 
-		%>
-		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/login.jsp">LOGUEJA'T</a>
-		</span>
-		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal" href="/paunoticies/html/form.jsp">REGISTRA'T</a>
-		</span>
-		<% }
-		%>
+	<jsp:include page="sessioiniciadajava.jsp" /> 
 	</nav>
 
 	<h1>Torna aviat! T'esperem</h1>
