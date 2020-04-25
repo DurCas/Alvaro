@@ -75,7 +75,7 @@
   		</div>
   		<div class="row">
   		    <div class="col-sm-6 textportada">
-  		    	<p class="noticia_titol">Agenda<i class="fas fa-calendar-alt portadaagenda"></i></p>
+  		    	<p class="noticia_titol">Agenda<em class="fas fa-calendar-alt portadaagenda"></em></p>
   		    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada tempor augue, eget dapibus purus rutrum sit amet. 
   		    	Proin blandit elit mi, at accumsan dolor dapibus in. Aliquam sit amet sem et nulla pellentesque bibendum non lobortis est. Aliquam id iaculis diam. 
   		    	Ut volutpat, orci in tempus dictum, neque lectus euismod massa, nec eleifend sapien tellus non mauris. 
