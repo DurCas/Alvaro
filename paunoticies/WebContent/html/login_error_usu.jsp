@@ -4,7 +4,7 @@
 <html lang="ca">
 <head>
 	<meta charset="ISO-8859-1">
-	<title>ERROR FORM RESPOSTA: USUARI</title>
+	<title>LOGIN: USUARI ERROR</title>
 	<jsp:include page="include/linksjava.jsp" />
 </head>
 <body>

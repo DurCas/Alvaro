@@ -7,7 +7,7 @@
 <html lang="ca">
 <head>
 	<meta charset="ISO-8859-1">
-	<title>FORM RESPOSTA</title>
+	<title>LOGIN: CORRECTE</title>
 	<jsp:include page="include/linksjava.jsp" />
 </head>
 <body>

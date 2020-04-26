@@ -7,7 +7,7 @@
 <html lang="ca">
 <head>
 	<meta charset="ISO-8859-1">
-	<title>FORMULARI USUARI REGISTRAT</title>
+	<title>FORMULARI: USUARI REGISTRAT</title>
 	<jsp:include page="include/linksjava.jsp" />
 </head>
 <body>

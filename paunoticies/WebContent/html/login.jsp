@@ -5,7 +5,7 @@
 <html lang="ca">
 <head>
 	<meta charset="ISO-8859-1">
-	<title>LOGUIN</title>
+	<title>LOGIN</title>
 	<jsp:include page="include/links.jsp" />
 </head>
 <body>

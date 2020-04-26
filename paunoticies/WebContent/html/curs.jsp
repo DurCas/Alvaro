@@ -7,7 +7,7 @@
 <html lang="ca">
 <head>
 	<meta charset="ISO-8859-1">
-	<title>MATRICULA CORRECTA</title>
+	<title>CURS: REGISTRA'T</title>
 	<jsp:include page="include/linksjava.jsp" />
 </head>
 <body>

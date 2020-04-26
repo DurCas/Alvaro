@@ -7,7 +7,7 @@
 <html lang="ca">
 <head>
 	<meta charset="ISO-8859-1">
-	<title>ERROR FORMULARI: USUARI REPETIT</title>
+	<title>FORMULARI: USUARI REPETIT</title>
 	<jsp:include page="include/linksjava.jsp" /> 
 </head>
 <body>

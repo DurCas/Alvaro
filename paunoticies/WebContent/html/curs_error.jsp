@@ -6,7 +6,7 @@
 <html lang="ca">
 <head>
 	<meta charset="ISO-8859-1">
-	<title>MATRICULA ERROR: USUARI</title>
+	<title>CURS: USUARI INEXISTENT</title>
 	<jsp:include page="include/linksjava.jsp" />
 </head>
 <body>

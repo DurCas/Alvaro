@@ -4,7 +4,7 @@
 <html lang="ca">
 <head>
 	<meta charset="ISO-8859-1">
-	<title>ERROR FORM RESPOSTA</title>
+	<title>LOGIN: USUARI INEXISTENT</title>
 	<jsp:include page="include/linksjava.jsp" />
 </head>
 <body>
@@ -23,7 +23,7 @@
 	<jsp:include page="include/sessioiniciadajava.jsp" /> 
 	</nav>
 
-	<h1>No existeix cap ususari amb aquestes credencials</h1>
+	<h1>No existeix cap usuari amb aquestes credencials</h1>
 	<div class="container">
   		<div class="row">
   			<div class="col-sm">
