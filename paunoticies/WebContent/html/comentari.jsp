@@ -50,6 +50,7 @@
   		<div class="row">
     		<div class="col-sm">
       			Usuari: <%=usuari %>
+      			Commit
     		</div>    					
   		</div>
   		<div class="row">
