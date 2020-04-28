@@ -23,6 +23,17 @@
           <warSourceDirectory>WebContent</warSourceDirectory>
         </configuration>
       </plugin>
+      <plugin>
+      	<groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.6.0.1398</version>
+      </plugin>
     </plugins>
   </build>
+  <properties>
+	  <sonar.projectKey>Alvaro</sonar.projectKey>
+	  <sonar.organization>durcas</sonar.organization>
+	  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	  <sonar.login>2c46b0b429c66b69102cc45f6b5434ffa34cef07</sonar.login>
+</properties>
 </project>

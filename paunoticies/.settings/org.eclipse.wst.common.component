@@ -2,7 +2,7 @@
     <wb-module deploy-name="paunoticies">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="paunoticies"/>
         <property name="java-output-path" value="/paunoticies/build/classes"/>
+        <property name="context-root" value="paunoticies"/>
     </wb-module>
 </project-modules>
