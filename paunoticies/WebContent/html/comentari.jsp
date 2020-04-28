@@ -49,7 +49,7 @@
 	<div class="container">
   		<div class="row">
     		<div class="col-sm">
-      			Usuari: <%=usuari %>Usuari: <%=usuari %>
+      			Usuari: <%=usuari %>
     		</div>    					
   		</div>
   		<div class="row">
