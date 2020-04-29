@@ -64,7 +64,7 @@ public class Curs extends HttpServlet {
 			Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Asus\\eclipse-workspace\\paunoticies\\WebContent\\WEB-INF\\lib\\basedades.db");
 			st=conn.createStatement();		
 		} catch(Exception e) {
-			//logger.log(e);
+			System.out.print(e);
 			e.printStackTrace();
 		}
 		return st;	
@@ -94,7 +94,8 @@ public class Curs extends HttpServlet {
 				while(rs.next()){
 					Countrow=rs.getString(1);
 					if(Countrow.equals("1")){
-						int i=st.executeUpdate("insert into PROVA3(nick, comments)values('"+usuari+"','"+comentaris+"')");
+						String i 		= "insert into PROVA3(nick, comments)values('"+usuari+"','"+comentaris+")";
+						ResultSet rs2 	= st.executeQuery(i);
 						getServletContext().getRequestDispatcher("/html/comentari.jsp").forward(request, response);		
 					} else {
 						getServletContext().getRequestDispatcher("/html/comentari_error.jsp").forward(request, response);		

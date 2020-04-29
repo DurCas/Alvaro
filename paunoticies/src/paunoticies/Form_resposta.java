@@ -38,7 +38,7 @@ public class Form_resposta extends HttpServlet {
 			e.printStackTrace();
 		}
 		return st;	
-	}
+	}	
 
 	public int check_regex(String usuari, String contra, String mail){	
 		Pattern pat_usu = Pattern.compile("[A-Za-z0-9]{8,}");
@@ -75,8 +75,9 @@ public class Form_resposta extends HttpServlet {
 				while(rs.next()){
 					Countrow=rs.getString(1);
 					if(Countrow.equals("0")){
-						int i=st.executeUpdate("insert into users_2(nick, pass, email)values('"+usuari+"','"+contra+"','"+mail+"')");
-						getServletContext().getRequestDispatcher("/html/form_resposta.jsp").forward(request, response);		
+						String i =	"insert into users_2(nick, pass, email)values('"+usuari+"','"+contra+"','"+mail+"')";
+						ResultSet rs2 	= 	st.executeQuery(i);
+						getServletContext().getRequestDispatcher("/html/form_resposta.jsp").forward(request, response);	
 					} else {
 						getServletContext().getRequestDispatcher("/html/form_resposta_error.jsp").forward(request, response);		
 					}

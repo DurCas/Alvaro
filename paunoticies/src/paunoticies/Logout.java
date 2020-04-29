@@ -29,7 +29,7 @@ public class Logout extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		//session.setAttribute("usuari", null);
+		session.setAttribute("usuari", null);
 		session.removeAttribute("usuari");
 		session.getMaxInactiveInterval();
 		getServletContext().getRequestDispatcher("/html/logout.jsp").forward(request, response);	
