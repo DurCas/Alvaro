@@ -83,7 +83,7 @@ public class Curs extends HttpServlet {
 		}*/
 		String usuari		= (String)request.getParameter("usuget");
 		String comentaris	= (String)request.getParameter("comment");
-		if (usuari=="" || comentaris==""){		
+		if (usuari.equals("") || comentaris==""){		
 			String redirectURL = "http://localhost:8080/paunoticies/html/cursos.jsp";
 		response.sendRedirect(redirectURL);		
 		} else {
