@@ -83,7 +83,7 @@ public class Curs extends HttpServlet {
 		}*/
 		String usuari		= (String)request.getParameter("usuget");
 		String comentaris	= (String)request.getParameter("comment");
-		if (usuari.equals("") || comentaris==""){		
+		if (usuari.equals("") || comentaris.equals("")){		
 			String redirectURL = "http://localhost:8080/paunoticies/html/cursos.jsp";
 		response.sendRedirect(redirectURL);		
 		} else {
@@ -124,7 +124,7 @@ public class Curs extends HttpServlet {
 		Integer c 		= Integer.parseInt(curs);
 		String pagar	= (String)request.getParameter("pagar");
 		String select[] = request.getParameterValues("idioma");
-		if (usuari=="" || curs=="" || pagar==""){		
+		if (usuari.equals("") || curs.equals("") || pagar.equals("")){		
 			String redirectURL = "http://localhost:8080/paunoticies/html/cursos.jsp";
 		response.sendRedirect(redirectURL);		
 		} else {
