@@ -25,7 +25,11 @@ public class Curs extends HttpServlet {
      */
 	
 	/**
-	 * Els noms de les taules són users_2 i purchases_2 (DE MOMENT prova4) i purchases_3 (DE MOMENT PROVA3)
+	 * Els noms de les taules són:
+	 * 	· users_2
+	 *  · purchases_2 (DE MOMENT prova4)
+	 *  · purchases_3 (DE MOMENT PROVA3)
+	 *   
 	 * Crear la taula purchases
 	 * @author Pau
 	 * create table prova4(
