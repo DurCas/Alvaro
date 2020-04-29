@@ -142,7 +142,8 @@ public class Curs extends HttpServlet {
 			      				k++;
 			      			}
 			      		} try {
-							int i=st.executeUpdate("insert into prova4(nick, curs, pagament, quantity, amount)values('"+usuari+"','"+c+"','"+pagar+"','"+k+"', '"+0+"')");		
+							//int i=st.executeUpdate("insert into prova4(nick, curs, pagament, quantity, amount)values('"+usuari+"','"+c+"','"+pagar+"','"+k+"', '"+0+"')");	
+							st.executeQuery("insert into prova4(nick, curs, pagament, quantity, amount)values('"+usuari+"','"+c+"','"+pagar+"','"+k+"', '"+0+"')");
 						} catch(Exception e) {
 							System.out.print(e);
 							e.printStackTrace();
