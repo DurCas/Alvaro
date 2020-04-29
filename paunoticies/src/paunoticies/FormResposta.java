@@ -14,7 +14,7 @@ import java.sql.*;
 /**
  * Servlet implementation class Form_resposta
  */
-@WebServlet("/Form_resposta")
+@WebServlet("/FormResposta")
 public class FormResposta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -41,12 +41,11 @@ public class FormResposta extends HttpServlet {
 	}	
 
 	public int check_Regex(String usuari, String contra, String mail){	
-		Pattern pat_Usu = Pattern.compile("[A-Za-z0-9]{8,}");
-		Matcher mat_Usu = pat_Usu.matcher(usuari);
-		Pattern pat_Cntr = Pattern.compile("[A-Za-z0-9]{8,}");
-		Matcher mat_Cntr = pat_Cntr.matcher(contra);
-		Pattern pat_Mail = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+\\=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
-		Matcher mat_Mail = pat_Mail.matcher(mail);
+		Pattern patro_usu	= Pattern.compile("[A-Za-z0-9]{8,}");
+		Matcher mat_Usu		= patro_usu.matcher(usuari);
+		Matcher mat_Cntr 	= patro_usu.matcher(contra);
+		Pattern pat_Mail 	= Pattern.compile("^[a-zA-Z0-9.!#$%&'*+\\=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
+		Matcher mat_Mail 	= pat_Mail.matcher(mail);
 		if (!mat_Usu.find()){
 			return 1;
 		} else if (!mat_Cntr.find()){

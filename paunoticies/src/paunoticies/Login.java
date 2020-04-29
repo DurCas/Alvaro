@@ -45,13 +45,12 @@ public class Login extends HttpServlet {
 	}	
 	
 	public int checkRegex(String usuari, String contra){	
-		Pattern patUsu = Pattern.compile("[A-Za-z0-9]{8,}");
-		Matcher matUsu = patUsu.matcher(usuari);
-		Pattern patCntr = Pattern.compile("[A-Za-z0-9]{8,}");
-		Matcher matCntr = patCntr.matcher(contra);
-		if (!matUsu.find()){
+		Pattern patro_usu	= Pattern.compile("[A-Za-z0-9]{8,}");
+		Matcher mat_Usu		= patro_usu.matcher(usuari);
+		Matcher mat_Cntr 	= patro_usu.matcher(contra);
+		if (!mat_Usu.find()){
 			return 1;
-		} else if (!matCntr.find()){
+		} else if (!mat_Cntr.find()){
 			return 2;
 		} else {
 			return 3;
@@ -62,8 +61,8 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String usuari=(String)request.getParameter("usuari");
-		String contra=(String)request.getParameter("contra");
+		String usuari = (String)request.getParameter("usuari");
+		String contra = (String)request.getParameter("contra");
 		int check=checkRegex(usuari, contra);
 		if(check==3) {
 			try {
