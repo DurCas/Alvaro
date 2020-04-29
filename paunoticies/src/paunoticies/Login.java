@@ -72,9 +72,9 @@ public class Login extends HttpServlet {
 				Statement st	=	connect();
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"' AND pass='"+contra+"'";
 				ResultSet rs 	= 	st.executeQuery(j);
-				String Countrow	=	"";
+				//String Countrow	=	"";
 				while(rs.next()){
-					Countrow=rs.getString(1);
+					String Countrow=rs.getString(1);
 					if(Countrow.equals("1")){
 						HttpSession sesion = request.getSession(true);
 						sesion.setAttribute("usuari", usuari);
