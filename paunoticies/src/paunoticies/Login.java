@@ -68,7 +68,7 @@ public class Login extends HttpServlet {
 		int check=check_regex(usuari, contra);
 		if(check==3) {
 			//ResultSet rs = null;
-			try (				Statement st	=	connect();){
+			try (				Statement st	=	connect()){
 				//Statement st	=	connect();
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"' AND pass='"+contra+"'";
 				ResultSet rs 	= 	st.executeQuery(j);
