@@ -67,7 +67,6 @@ public class Form_resposta extends HttpServlet {
 		String mail=(String)request.getParameter("mail");
 		int check=check_regex(usuari, contra, mail);
 		if(check==4) {
-			//ResultSet rs = null;
 			try {
 				Statement st	=	connect();
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
@@ -76,8 +75,6 @@ public class Form_resposta extends HttpServlet {
 				while(rs.next()){
 					Countrow=rs.getString(1);
 					if(Countrow.equals("0")){
-						/*String i =	"insert into users_2(nick, pass, email)values('"+usuari+"','"+contra+"','"+mail+"')";
-						ResultSet rs2 	= 	st.executeQuery(i);*/
 						st.executeQuery("insert into users_2(nick, pass, email)values('"+usuari+"','"+contra+"','"+mail+"')");
 						getServletContext().getRequestDispatcher("/html/form_resposta.jsp").forward(request, response);	
 					} else {

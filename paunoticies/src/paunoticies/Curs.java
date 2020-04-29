@@ -75,29 +75,19 @@ public class Curs extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession sesion = request.getSession(true);
-		if((sesion != null)) {
-			String usuari		= sesion;
-		} else {
-			String usuari		= (String)request.getParameter("usuget");
-		}*/
 		String usuari		= (String)request.getParameter("usuget");
 		String comentaris	= (String)request.getParameter("comment");
 		if (usuari.equals("") || comentaris.equals("")){		
 			String redirectURL = "http://localhost:8080/paunoticies/html/cursos.jsp";
 			response.sendRedirect(redirectURL);		
 		} else {
-			//ResultSet rs = null;
 			try {
 				Statement st	=	connect();
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
 				ResultSet rs	= 	st.executeQuery(j);
-				String Countrow	=	"";
 				while(rs.next()){
-					Countrow=rs.getString(1);
+					String Countrow = rs.getString(1);
 					if(Countrow.equals("1")){
-						/*String i 		= "insert into PROVA3(nick, comments)values('"+usuari+"','"+comentaris+")";
-						ResultSet rs2 	= st.executeQuery(i);*/
 						st.executeQuery("insert into PROVA3(nick, comments)values('"+usuari+"','"+comentaris+")");
 						getServletContext().getRequestDispatcher("/html/comentari.jsp").forward(request, response);		
 					} else {
@@ -129,15 +119,13 @@ public class Curs extends HttpServlet {
 		if (usuari.equals("") || curs.equals("") || pagar.equals("")){		
 			String redirectURL = "http://localhost:8080/paunoticies/html/cursos.jsp";
 			response.sendRedirect(redirectURL);		
-		} else {
-			ResultSet rs = null;
+		} else {			
 			try {
 				Statement st	=	connect();
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
-				rs			 	= 	st.executeQuery(j);
-				String Countrow	=	"";
+				ResultSet rs	= 	st.executeQuery(j);
 				while(rs.next()){
-					Countrow=rs.getString(1);
+					String Countrow = rs.getString(1);
 					if(Countrow.equals("1")){
 						int k=0;
 			      		if (select != null && select.length != 0) {
@@ -159,12 +147,6 @@ public class Curs extends HttpServlet {
 			} catch(Exception e) {
 				System.out.print(e);
 				e.printStackTrace();
-			} finally {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 			}
 		}	
 	}
