@@ -25,7 +25,7 @@
 	</nav>
     
     <div class="container">
-            <form action="../Form_resposta" method="post">    
+            <form action="../FormResposta" method="post">    
                 <div class="row">
                   <div class="col-sm-2">Usuari: </div>
                   <div class="col-sm-2 filamodal"><input type="text" name="usuari" required></div>

@@ -84,8 +84,8 @@ public class Curs extends HttpServlet {
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
 				ResultSet rs	= 	st.executeQuery(j);
 				while(rs.next()){
-					String Countrow = rs.getString(1);
-					if(Countrow.equals("1")){
+					String countRow = rs.getString(1);
+					if(countRow.equals("1")){
 						st.executeQuery("insert into PROVA3(nick, comments)values('"+usuari+"','"+comentaris+")");
 						getServletContext().getRequestDispatcher("/html/comentari.jsp").forward(request, response);		
 					} else {
@@ -117,8 +117,8 @@ public class Curs extends HttpServlet {
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
 				ResultSet rs	= 	st.executeQuery(j);
 				while(rs.next()){
-					String Countrow = rs.getString(1);
-					if(Countrow.equals("1")){
+					String countRow = rs.getString(1);
+					if(countRow.equals("1")){
 						int k=0;
 			      		if (select != null && select.length != 0) {
 			      			for (int i = 0; i < select.length; i++) {
