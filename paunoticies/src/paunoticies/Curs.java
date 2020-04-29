@@ -57,7 +57,7 @@ public class Curs extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
-    @SuppressWarnings("Squid:S2115")
+    @SuppressWarnings("squid:S2115")
 	public Statement connect(){
 		Statement st=null;
 		try {
