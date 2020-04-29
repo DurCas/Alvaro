@@ -57,6 +57,7 @@ public class Curs extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
+    @SuppressWarnings("S2115")
 	public Statement connect(){
 		Statement st=null;
 		try {
@@ -64,7 +65,7 @@ public class Curs extends HttpServlet {
 			Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Asus\\eclipse-workspace\\paunoticies\\WebContent\\WEB-INF\\lib\\basedades.db");
 			st=conn.createStatement();		
 		} catch(Exception e) {
-			System.out.print(e);
+			//logger.log(e);
 			e.printStackTrace();
 		}
 		return st;	
