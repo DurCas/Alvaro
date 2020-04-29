@@ -61,17 +61,17 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String usuari = (String)request.getParameter("usuari");
-		String contra = (String)request.getParameter("contra");
-		int check=checkRegex(usuari, contra);
+		String usuari 	= (String)request.getParameter("usuari");
+		String contra 	= (String)request.getParameter("contra");
+		int check		= checkRegex(usuari, contra);
 		if(check==3) {
 			try {
 				Statement st	=	connect();
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"' AND pass='"+contra+"'";
 				ResultSet rs 	= 	st.executeQuery(j);
 				while(rs.next()){
-					String Countrow=rs.getString(1);
-					if(Countrow.equals("1")){
+					String countRow=rs.getString(1);
+					if(countRow.equals("1")){
 						HttpSession sesion = request.getSession(true);
 						sesion.setAttribute("usuari", usuari);
 						getServletContext().getRequestDispatcher("/html/login_resposta.jsp").forward(request, response);		
