@@ -87,11 +87,11 @@ public class Curs extends HttpServlet {
 			String redirectURL = "http://localhost:8080/paunoticies/html/cursos.jsp";
 			response.sendRedirect(redirectURL);		
 		} else {
-			ResultSet rs = null;
-			try {
-				Statement st	=	connect();
+			//ResultSet rs = null;
+			try (				Statement st	=	connect();){
+				//Statement st	=	connect();
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
-				rs 				= 	st.executeQuery(j);
+				ResultSet rs	= 	st.executeQuery(j);
 				String Countrow	=	"";
 				while(rs.next()){
 					Countrow=rs.getString(1);
@@ -107,12 +107,6 @@ public class Curs extends HttpServlet {
 			} catch(Exception e) {
 				System.out.print(e);
 				e.printStackTrace();
-			} finally {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 			}
 		}
 	}
