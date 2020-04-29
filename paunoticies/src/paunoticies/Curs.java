@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.ServletException;
@@ -128,10 +129,11 @@ public class Curs extends HttpServlet {
 			String redirectURL = "http://localhost:8080/paunoticies/html/cursos.jsp";
 		response.sendRedirect(redirectURL);		
 		} else {
+			ResultSet rs = null;
 			try {
 				Statement st	=	connect();
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
-				ResultSet rs 	= 	st.executeQuery(j);
+				rs			 	= 	st.executeQuery(j);
 				String Countrow	=	"";
 				while(rs.next()){
 					Countrow=rs.getString(1);
@@ -156,7 +158,14 @@ public class Curs extends HttpServlet {
 			} catch(Exception e) {
 				System.out.print(e);
 				e.printStackTrace();
-			} 
+			} finally {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}	
 	}
 }
