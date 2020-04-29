@@ -40,17 +40,17 @@ public class FormResposta extends HttpServlet {
 		return st;	
 	}	
 
-	public int check_Regex(String usuari, String contra, String mail){	
-		Pattern patro_usu	= Pattern.compile("[A-Za-z0-9]{8,}");
-		Matcher mat_Usu		= patro_usu.matcher(usuari);
-		Matcher mat_Cntr 	= patro_usu.matcher(contra);
-		Pattern pat_Mail 	= Pattern.compile("^[a-zA-Z0-9.!#$%&'*+\\=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
-		Matcher mat_Mail 	= pat_Mail.matcher(mail);
-		if (!mat_Usu.find()){
+	public int checkRegex(String usuari, String contra, String mail){	
+		Pattern patroUsu	= Pattern.compile("[A-Za-z0-9]{8,}");
+		Matcher matUsu		= patroUsu.matcher(usuari);
+		Matcher matCntr 	= patroUsu.matcher(contra);
+		Pattern patMail 	= Pattern.compile("^[a-zA-Z0-9.!#$%&'*+\\=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
+		Matcher matMail 	= patMail.matcher(mail);
+		if (!matUsu.find()){
 			return 1;
-		} else if (!mat_Cntr.find()){
+		} else if (!matCntr.find()){
 			return 2;
-		} else if (!mat_Mail.find()) {
+		} else if (!matMail.find()) {
 			return 3;
 		} else {
 			return 4;
@@ -64,12 +64,12 @@ public class FormResposta extends HttpServlet {
 		String usuari	= (String)request.getParameter("usuari");
 		String contra	= (String)request.getParameter("contra");
 		String mail		= (String)request.getParameter("mail");
-		int check		= check_Regex(usuari, contra, mail);
+		int check		= checkRegex(usuari, contra, mail);
 		if(check==4) {
 			try {
 				Statement st	=	connect();
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
-				ResultSet rs 				= 	st.executeQuery(j);
+				ResultSet rs 	= 	st.executeQuery(j);
 				while(rs.next()){
 					String countRow=rs.getString(1);
 					if(countRow.equals("0")){

@@ -45,12 +45,12 @@ public class Login extends HttpServlet {
 	}	
 	
 	public int checkRegex(String usuari, String contra){	
-		Pattern patro_usu	= Pattern.compile("[A-Za-z0-9]{8,}");
-		Matcher mat_Usu		= patro_usu.matcher(usuari);
-		Matcher mat_Cntr 	= patro_usu.matcher(contra);
-		if (!mat_Usu.find()){
+		Pattern patroUsu	= Pattern.compile("[A-Za-z0-9]{8,}");
+		Matcher matUsu		= patroUsu.matcher(usuari);
+		Matcher matCntr 	= patroUsu.matcher(contra);
+		if (!matUsu.find()){
 			return 1;
-		} else if (!mat_Cntr.find()){
+		} else if (!matCntr.find()){
 			return 2;
 		} else {
 			return 3;
