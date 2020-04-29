@@ -103,7 +103,7 @@ public class Curs extends HttpServlet {
 			} catch(Exception e) {
 				System.out.print(e);
 				e.printStackTrace();
-			}
+			} 
 		}
 	}
 
@@ -153,7 +153,7 @@ public class Curs extends HttpServlet {
 			} catch(Exception e) {
 				System.out.print(e);
 				e.printStackTrace();
-			}
+			} 
 		}	
 	}
 }
