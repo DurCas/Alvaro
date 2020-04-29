@@ -85,12 +85,13 @@ public class Curs extends HttpServlet {
 		String comentaris	= (String)request.getParameter("comment");
 		if (usuari.equals("") || comentaris.equals("")){		
 			String redirectURL = "http://localhost:8080/paunoticies/html/cursos.jsp";
-		response.sendRedirect(redirectURL);		
+			response.sendRedirect(redirectURL);		
 		} else {
+			ResultSet rs = null;
 			try {
 				Statement st	=	connect();
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
-				ResultSet rs 	= 	st.executeQuery(j);
+				rs 				= 	st.executeQuery(j);
 				String Countrow	=	"";
 				while(rs.next()){
 					Countrow=rs.getString(1);
@@ -106,7 +107,13 @@ public class Curs extends HttpServlet {
 			} catch(Exception e) {
 				System.out.print(e);
 				e.printStackTrace();
-			} 
+			} finally {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 
@@ -127,7 +134,7 @@ public class Curs extends HttpServlet {
 		String select[] = request.getParameterValues("idioma");
 		if (usuari.equals("") || curs.equals("") || pagar.equals("")){		
 			String redirectURL = "http://localhost:8080/paunoticies/html/cursos.jsp";
-		response.sendRedirect(redirectURL);		
+			response.sendRedirect(redirectURL);		
 		} else {
 			ResultSet rs = null;
 			try {
@@ -162,7 +169,6 @@ public class Curs extends HttpServlet {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}

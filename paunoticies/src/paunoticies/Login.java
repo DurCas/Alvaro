@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -66,10 +67,11 @@ public class Login extends HttpServlet {
 		String contra=(String)request.getParameter("contra");
 		int check=check_regex(usuari, contra);
 		if(check==3) {
+			ResultSet rs = null;
 			try {
 				Statement st	=	connect();
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"' AND pass='"+contra+"'";
-				ResultSet rs 	= 	st.executeQuery(j);
+				rs			 	= 	st.executeQuery(j);
 				String Countrow	=	"";
 				while(rs.next()){
 					Countrow=rs.getString(1);
@@ -84,7 +86,14 @@ public class Login extends HttpServlet {
 			} catch(Exception e) {
 				System.out.print(e);
 				e.printStackTrace();
-			}	
+			} finally {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		} else if(check==1){
 			connect();	
 			getServletContext().getRequestDispatcher("/html/login_error_usu.jsp").forward(request, response);

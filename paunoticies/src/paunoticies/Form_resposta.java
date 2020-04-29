@@ -67,10 +67,11 @@ public class Form_resposta extends HttpServlet {
 		String mail=(String)request.getParameter("mail");
 		int check=check_regex(usuari, contra, mail);
 		if(check==4) {
+			ResultSet rs = null;
 			try {
 				Statement st	=	connect();
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
-				ResultSet rs 	= 	st.executeQuery(j);
+				rs 				= 	st.executeQuery(j);
 				String Countrow	=	"";
 				while(rs.next()){
 					Countrow=rs.getString(1);
@@ -86,7 +87,14 @@ public class Form_resposta extends HttpServlet {
 			} catch(Exception e) {
 				System.out.print(e);
 				e.printStackTrace();
-			}	
+			} finally {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		} else if(check==1){
 			connect();	
 			getServletContext().getRequestDispatcher("/html/error_usu.jsp").forward(request, response);
