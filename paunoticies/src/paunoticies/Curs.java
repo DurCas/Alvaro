@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.ServletException;
@@ -12,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Curs
@@ -105,12 +103,6 @@ public class Curs extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession sesion = request.getSession(true);
-		if((sesion != null)) {
-			String usuari		= sesion;
-		} else {
-			String usuari		= (String)request.getParameter("usuget");
-		}*/
 		String usuari	= (String)request.getParameter("usupost");
 		String curs		= (String)request.getParameter("curs");
 		Integer c 		= Integer.parseInt(curs);
@@ -132,8 +124,7 @@ public class Curs extends HttpServlet {
 			      			for (int i = 0; i < select.length; i++) {
 			      				k++;
 			      			}
-			      		} try {
-							//int i=st.executeUpdate("insert into prova4(nick, curs, pagament, quantity, amount)values('"+usuari+"','"+c+"','"+pagar+"','"+k+"', '"+0+"')");	
+			      		} try {	
 							st.executeQuery("insert into prova4(nick, curs, pagament, quantity, amount)values('"+usuari+"','"+c+"','"+pagar+"','"+k+"', '"+0+"')");
 						} catch(Exception e) {
 							System.out.print(e);
