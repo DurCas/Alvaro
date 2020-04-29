@@ -21,17 +21,12 @@ public class Portada extends HttpServlet {
      */
     public Portada() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-	    //PrintWriter salida = response.getWriter();
-	    //salida.println("Hola Mundo!");
 		getServletContext().getRequestDispatcher("/html/portada.jsp").forward(request, response);
 	}
 
@@ -39,7 +34,6 @@ public class Portada extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

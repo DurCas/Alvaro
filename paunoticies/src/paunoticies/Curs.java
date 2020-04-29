@@ -54,7 +54,6 @@ public class Curs extends HttpServlet {
 	
     public Curs() {
         super();
-        // TODO Auto-generated constructor stub
     }
     
     @SuppressWarnings("squid:S2115")
@@ -75,7 +74,6 @@ public class Curs extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		/*HttpSession sesion = request.getSession(true);
 		if((sesion != null)) {
 			String usuari		= sesion;
@@ -113,7 +111,6 @@ public class Curs extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		/*HttpSession sesion = request.getSession(true);
 		if((sesion != null)) {
 			String usuari		= sesion;

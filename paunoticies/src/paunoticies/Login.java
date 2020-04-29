@@ -28,7 +28,6 @@ public class Login extends HttpServlet {
 	
     public Login() {
         super();
-        // TODO Auto-generated constructor stub
     }
     
     @SuppressWarnings("squid:S2115")
@@ -63,7 +62,6 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String usuari=(String)request.getParameter("usuari");
 		String contra=(String)request.getParameter("contra");
 		int check=check_regex(usuari, contra);
@@ -100,7 +98,6 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 }
