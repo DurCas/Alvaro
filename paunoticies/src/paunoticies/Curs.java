@@ -88,8 +88,8 @@ public class Curs extends HttpServlet {
 			response.sendRedirect(redirectURL);		
 		} else {
 			//ResultSet rs = null;
-			try (				Statement st	=	connect();){
-				//Statement st	=	connect();
+			try {
+				Statement st	=	connect();
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
 				ResultSet rs	= 	st.executeQuery(j);
 				String Countrow	=	"";

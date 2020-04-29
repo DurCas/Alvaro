@@ -68,8 +68,8 @@ public class Form_resposta extends HttpServlet {
 		int check=check_regex(usuari, contra, mail);
 		if(check==4) {
 			//ResultSet rs = null;
-			try (				Statement st	=	connect();) {
-				//Statement st	=	connect();
+			try {
+				Statement st	=	connect();
 				String j		=	"SELECT count(nick) FROM users_2 WHERE nick='"+usuari+"'";
 				ResultSet rs 				= 	st.executeQuery(j);
 				String Countrow	=	"";
