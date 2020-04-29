@@ -6,7 +6,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -66,8 +65,8 @@ public class Curs extends HttpServlet {
 			Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Asus\\eclipse-workspace\\paunoticies\\WebContent\\WEB-INF\\lib\\basedades.db");
 			st=conn.createStatement();		
 		} catch(Exception e) {
-			GenericServlet LOGGER = null;
-			LOGGER.log("Error: ", e);
+			//logger.log(e);
+			e.printStackTrace();
 		}
 		return st;	
 	}	
@@ -104,8 +103,8 @@ public class Curs extends HttpServlet {
 					}
 				}
 			} catch(Exception e) {
-				GenericServlet LOGGER = null;
-				LOGGER.log("Error: ", e);
+				System.out.print(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -146,8 +145,8 @@ public class Curs extends HttpServlet {
 			      		} try {
 							int i=st.executeUpdate("insert into prova4(nick, curs, pagament, quantity, amount)values('"+usuari+"','"+c+"','"+pagar+"','"+k+"', '"+0+"')");		
 						} catch(Exception e) {
-							GenericServlet LOGGER = null;
-							LOGGER.log("Error: ", e);
+							System.out.print(e);
+							e.printStackTrace();
 						}
 						getServletContext().getRequestDispatcher("/html/curs.jsp").forward(request, response);		
 					} else {
@@ -155,8 +154,8 @@ public class Curs extends HttpServlet {
 					}
 				}
 			} catch(Exception e) {
-				GenericServlet LOGGER = null;
-				LOGGER.log("Error: ", e);
+				System.out.print(e);
+				e.printStackTrace();
 			}
 		}	
 	}

@@ -2,7 +2,6 @@ package paunoticies;
 
 import java.io.IOException;
 
-import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,8 +35,8 @@ public class Form_resposta extends HttpServlet {
 			Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Asus\\eclipse-workspace\\paunoticies\\WebContent\\WEB-INF\\lib\\basedades.db");
 			st=conn.createStatement();		
 		} catch(Exception e) {
-			GenericServlet LOGGER = null;
-			LOGGER.log("Error: ", e);
+			System.out.print(e);
+			e.printStackTrace();
 		}
 		return st;	
 	}
@@ -85,9 +84,9 @@ public class Form_resposta extends HttpServlet {
 					}
 				}
 			} catch(Exception e) {
-				GenericServlet LOGGER = null;
-				LOGGER.log("Error: ", e);
-			}
+				System.out.print(e);
+				e.printStackTrace();
+			}	
 		} else if(check==1){
 			connect();	
 			getServletContext().getRequestDispatcher("/html/error_usu.jsp").forward(request, response);
