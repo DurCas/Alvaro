@@ -31,6 +31,7 @@ public class Login extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
+    @SuppressWarnings("squid:S2115")
 	public Statement connect(){
 		Statement st=null;
 		try {
