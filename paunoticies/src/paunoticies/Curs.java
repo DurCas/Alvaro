@@ -94,8 +94,9 @@ public class Curs extends HttpServlet {
 				while(rs.next()){
 					Countrow=rs.getString(1);
 					if(Countrow.equals("1")){
-						String i 		= "insert into PROVA3(nick, comments)values('"+usuari+"','"+comentaris+")";
-						ResultSet rs2 	= st.executeQuery(i);
+						/*String i 		= "insert into PROVA3(nick, comments)values('"+usuari+"','"+comentaris+")";
+						ResultSet rs2 	= st.executeQuery(i);*/
+						st.executeQuery("insert into PROVA3(nick, comments)values('"+usuari+"','"+comentaris+")");
 						getServletContext().getRequestDispatcher("/html/comentari.jsp").forward(request, response);		
 					} else {
 						getServletContext().getRequestDispatcher("/html/comentari_error.jsp").forward(request, response);		
