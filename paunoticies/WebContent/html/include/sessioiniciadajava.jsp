@@ -1,4 +1,4 @@
-		<% if (session != null) { 
+		<% if (session.getAttribute("usuari") != null) { 
 		%>
 		<span class="navbar-text">
 			<a class="nav-item nav-link"  data-toggle="modal">${sessionScope.usuari}</a>
