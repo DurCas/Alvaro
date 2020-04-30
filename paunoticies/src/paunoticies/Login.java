@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,6 +23,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger LOGGER = Logger.getLogger("paunoticies.Login");
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -38,8 +41,7 @@ public class Login extends HttpServlet {
 			Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Asus\\eclipse-workspace\\paunoticies\\WebContent\\WEB-INF\\lib\\basedades.db");
 			st=conn.createStatement();		
 		} catch(Exception e) {
-			System.out.print(e);
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		return st;	
 	}	
@@ -80,8 +82,7 @@ public class Login extends HttpServlet {
 					}
 				}
 			} catch(Exception e) {
-				System.out.print(e);
-				e.printStackTrace();
+				LOGGER.log(Level.SEVERE, e.getMessage());
 			}
 		} else if(check==1){
 			connect();	

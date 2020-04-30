@@ -6,6 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.*;
 import java.sql.*;
 
@@ -15,6 +18,7 @@ import java.sql.*;
 @WebServlet("/FormResposta")
 public class FormResposta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger LOGGER = Logger.getLogger("paunoticies.FormResposta");
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -32,8 +36,7 @@ public class FormResposta extends HttpServlet {
 			Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Asus\\eclipse-workspace\\paunoticies\\WebContent\\WEB-INF\\lib\\basedades.db");
 			st=conn.createStatement();		
 		} catch(Exception e) {
-			System.out.print(e);
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		return st;	
 	}		
@@ -80,8 +83,7 @@ public class FormResposta extends HttpServlet {
 					}
 				}
 			} catch(Exception e) {
-				System.out.print(e);
-				e.printStackTrace();
+				LOGGER.log(Level.SEVERE, e.getMessage());
 			}
 		} else if(check==1){
 			connect();	

@@ -94,8 +94,7 @@ public class Curs extends HttpServlet {
 					}
 				}
 			} catch(Exception e) {
-				System.out.print(e);
-				e.printStackTrace();
+				LOGGER.log(Level.SEVERE, e.getMessage());
 			}
 		}
 	}
@@ -129,8 +128,7 @@ public class Curs extends HttpServlet {
 							st.executeQuery("insert into prova4(nick, curs, pagament, quantity, amount)values('"+usuari+"','"+c+"','"+pagar+"','"+k+"', '"+0+"')");
 			      			getServletContext().getRequestDispatcher("/html/curs.jsp").forward(request, response);	
 						} catch(Exception e) {
-							System.out.print(e);
-							e.printStackTrace();
+							LOGGER.log(Level.SEVERE, e.getMessage());
 						}
 						getServletContext().getRequestDispatcher("/html/curs.jsp").forward(request, response);		
 					} else {
@@ -138,8 +136,7 @@ public class Curs extends HttpServlet {
 					}
 				}
 			} catch(Exception e) {
-				System.out.print(e);
-				e.printStackTrace();
+				LOGGER.log(Level.SEVERE, e.getMessage());
 			}
 		}	
 	}
