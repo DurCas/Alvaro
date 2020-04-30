@@ -29,7 +29,7 @@ public class FormResposta extends HttpServlet {
     }
     
     @SuppressWarnings("squid:S2115")
-	public Statement connect(){
+	public Statement connect() throws SQLException{
 		Statement st=null;
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -37,6 +37,8 @@ public class FormResposta extends HttpServlet {
 			st=conn.createStatement();		
 		} catch(Exception e) {
 			LOGGER.log(Level.SEVERE, e.getMessage());
+		} finally {
+			st.close();
 		}
 		return st;	
 	}		
@@ -74,25 +76,35 @@ public class FormResposta extends HttpServlet {
 				while(rs.next()){
 					String countRow=rs.getString(1);
 					if(countRow.equals("0")){
-						//st.executeQuery("insert into users_2(nick) values('"+usuari+"')");
-						//st.executeQuery("insert into users_2(nick, pass, email) values('"+usuari+"','"+contra+"','"+mail+"')");
-						//getServletContext().getRequestDispatcher("/html/form_resposta.jsp").forward(request, response);	
-						getServletContext().getRequestDispatcher("/html/comentari.jsp").forward(request, response);	
+						st.executeUpdate("insert into users_2(nick, pass, email) values('"+usuari+"','"+contra+"','"+mail+"')");
+						getServletContext().getRequestDispatcher("/html/form_resposta.jsp").forward(request, response);	
 					} else {
 						getServletContext().getRequestDispatcher("/html/form_resposta_error.jsp").forward(request, response);		
 					}
 				}
 			} catch(Exception e) {
 				LOGGER.log(Level.SEVERE, e.getMessage());
-			}
+			} 
 		} else if(check==1){
-			connect();	
+			try {
+				connect();
+			} catch (SQLException e) {
+				LOGGER.log(Level.SEVERE, e.getMessage());
+			}	
 			getServletContext().getRequestDispatcher("/html/error_usu.jsp").forward(request, response);
 		} else if(check==2) {
-			connect();	
+			try {
+				connect();
+			} catch (SQLException e) {
+				LOGGER.log(Level.SEVERE, e.getMessage());
+			}	
 			getServletContext().getRequestDispatcher("/html/error_cntr.jsp").forward(request, response);
 		} else if(check==3) {
-			connect();	
+			try {
+				connect();
+			} catch (SQLException e) {
+				LOGGER.log(Level.SEVERE, e.getMessage());
+			}	
 			getServletContext().getRequestDispatcher("/html/error_mail.jsp").forward(request, response);
 		}	
 	}

@@ -155,7 +155,7 @@
 					Nom d'usuari:
 				</div>	
 				<div class="col-sm">			
-					<input type="text" id="usupost" name="usupost">
+					<input type="text" id="usupost" name="usuget">
 				</div>	
 				<% }
 				%>
