@@ -107,13 +107,20 @@
 
 		<div class="container containerusu">
 		  <div class="row">
-			
+			<%
+			if (session != null) { %>
+			<div class="col-sm-2">
+				Usuari: ${sessionScope.usuari}
+			</div>	
+			<% } else { %>
 			<div class="col-sm-2">
 				Nom d'usuari:
 			</div>	
 			<div class="col-sm">			
 				<input type="text" id="usupost" name="usupost">
 			</div>	
+			<% }
+			%>
 			<div class="col-sm-2">
 				Curs:
 			</div>	
