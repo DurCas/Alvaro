@@ -1,13 +1,11 @@
 package paunoticies;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import java.util.regex.*;
 import java.sql.*;
 
@@ -36,6 +34,12 @@ public class FormResposta extends HttpServlet {
 		} catch(Exception e) {
 			System.out.print(e);
 			e.printStackTrace();
+		} finally {
+			try {
+				st.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return st;	
 	}	

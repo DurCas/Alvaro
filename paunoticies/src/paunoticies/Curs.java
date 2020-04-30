@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -68,7 +67,7 @@ public class Curs extends HttpServlet {
 		}
 		return st;	
 	}	
-
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -86,7 +85,7 @@ public class Curs extends HttpServlet {
 				while(rs.next()){
 					String countRow = rs.getString(1);
 					if(countRow.equals("1")){
-						st.executeUpdate("insert into PROVA3(nick, comments)values('"+usuari+"','"+comentaris+")");
+						//st.executeQuery("insert into PROVA3(nick, comments)values('"+usuari+"','"+comentaris+")");
 						getServletContext().getRequestDispatcher("/html/comentari.jsp").forward(request, response);		
 					} else {
 						getServletContext().getRequestDispatcher("/html/comentari_error.jsp").forward(request, response);		
