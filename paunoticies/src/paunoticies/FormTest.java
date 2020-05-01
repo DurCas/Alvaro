@@ -18,7 +18,7 @@ public class FormTest extends HttpServlet {
 	private static final Logger LOGGER = Logger.getLogger("paunoticies.FormTest.java");
 	
     @SuppressWarnings("squid:S2115")
-	public Statement connect(){
+	public Statement connect() throws NullPointerException{
 		Statement st=null;
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -26,7 +26,7 @@ public class FormTest extends HttpServlet {
 			st=conn.createStatement();		
 		} catch(Exception e) {
 			LOGGER.log(Level.SEVERE, e.getMessage());
-		}
+		} 
 		return st;	
 	}
 
