@@ -58,7 +58,7 @@ public class Curs extends HttpServlet {
     }
     
     @SuppressWarnings("squid:S2115")
-	public Statement connect(){
+	public Statement connect() throws NullPointerException{
 		Statement st=null;
 		try {
 			Class.forName("org.sqlite.JDBC");
