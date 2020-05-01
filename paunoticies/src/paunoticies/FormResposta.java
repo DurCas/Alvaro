@@ -29,7 +29,7 @@ public class FormResposta extends HttpServlet {
     }
     
     @SuppressWarnings("squid:S2115")
-	public Statement connect() throws SQLException{
+	public Statement connect() throws NullPointerException{
 		Statement st=null;
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -37,8 +37,6 @@ public class FormResposta extends HttpServlet {
 			st=conn.createStatement();		
 		} catch(Exception e) {
 			LOGGER.log(Level.SEVERE, e.getMessage());
-		} finally {
-			st.close();
 		}
 		return st;	
 	}		
@@ -88,21 +86,21 @@ public class FormResposta extends HttpServlet {
 		} else if(check==1){
 			try {
 				connect();
-			} catch (SQLException e) {
+			} catch (NullPointerException e) {
 				LOGGER.log(Level.SEVERE, e.getMessage());
 			}	
 			getServletContext().getRequestDispatcher("/html/error_usu.jsp").forward(request, response);
 		} else if(check==2) {
 			try {
 				connect();
-			} catch (SQLException e) {
+			} catch (NullPointerException e) {
 				LOGGER.log(Level.SEVERE, e.getMessage());
 			}	
 			getServletContext().getRequestDispatcher("/html/error_cntr.jsp").forward(request, response);
 		} else if(check==3) {
 			try {
 				connect();
-			} catch (SQLException e) {
+			} catch (NullPointerException e) {
 				LOGGER.log(Level.SEVERE, e.getMessage());
 			}	
 			getServletContext().getRequestDispatcher("/html/error_mail.jsp").forward(request, response);
