@@ -22,13 +22,13 @@
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<em class="fas fa-arrow-right navawe"></em></a>
 			</div>
 		</div>
-		<% if (session != null) { 
+		<% if (session.getAttribute("usuari") != null) { 
 		%>
 		<span class="navbar-text">
 			<a class="nav-item nav-link"  data-toggle="modal">${sessionScope.usuari}</a>
 		</span>
 		<span class="navbar-text">
-			<a class="nav-item nav-link"  data-toggle="modal" href="../Logout">SORTIR</a>
+			<a class="nav-item nav-link"  data-toggle="modal" href="/Logout">SORTIR</a>
 		</span>
 		<% } else { 
 		%>
@@ -43,8 +43,9 @@
 	</nav>
 
 <%
-	String usuari		= (String)request.getParameter("usuget");
 	String comentaris	= (String)request.getParameter("comment");
+	if (session.getAttribute("usuari") != null) { 
+		String usuari = (String)session.getAttribute("usuari");
 %>
 	<div class="container">
   		<div class="row">
@@ -52,6 +53,17 @@
       			Usuari: <%=usuari %>
     		</div>    					
   		</div>
+<% 	} else {
+		String usuari		= (String)request.getParameter("usuget");
+%>
+	<div class="container">
+  		<div class="row">
+    		<div class="col-sm">
+      			Usuari: <%=usuari %>
+    		</div>    					
+  		</div>
+<% 	}
+%>
   		<div class="row">
     		<div class="col-sm">
       			Comentari: <%=comentaris %>

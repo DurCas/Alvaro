@@ -35,7 +35,7 @@
 				<a class="nav-item nav-link" href="#">EXPERIÈNCIES ONLINE<em class="fas fa-arrow-right navawe"></em></a>
 			</div>
 		</div>
-		<% if (session != null) { 
+		<% if (session.getAttribute("usuari") != null) { 
 		%>
 		<span class="navbar-text">
 			<a class="nav-item nav-link"  data-toggle="modal">${sessionScope.usuari}</a>
@@ -55,23 +55,30 @@
 		%>
 	</nav>
 <%
-	String usuari	= (String)request.getParameter("usupost");
 	String curs		= (String)request.getParameter("curs");
 	Integer c 		= Integer.parseInt(curs);
 	String pagar	= (String)request.getParameter("pagar");
 	String select[] = request.getParameterValues("idioma");
+	if (session.getAttribute("usuari") != null) { 
+		String usuari = (String)session.getAttribute("usuari");
 %>
 	<div class="container">
-		<div class="row">
-			<div class="col-sm">
+  		<div class="row">
+    		<div class="col-sm">
 				Benvingut <%=usuari %>! Ja t'has matriculat correctament 
 			</div> 
 		</div>
-		<div class="row">
-			<div class="col-sm">
-      			El nivell del curs que t'has matriculat és: <%=curs %>
-    		</div>    		
-  		</div>
+<% 	} else {
+		String usuari		= (String)request.getParameter("usupost");
+%>
+	<div class="container">
+  		<div class="row">
+    		<div class="col-sm">
+				Benvingut <%=usuari %>! Ja t'has matriculat correctament 
+			</div> 
+		</div>
+<% 	}
+%>
 		<div class="row">
     		<div class="col-sm">
       			El mètode escollit de pagament és: <%=pagar %>

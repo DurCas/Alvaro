@@ -35,7 +35,16 @@
 		<jsp:include page="include/sessioiniciada.jsp" /> 
 	</nav>
 	
+	<%
+	if (session.getAttribute("usuari") != null) { %>
 	<form method="POST" action="../Curs">
+	<% 
+	} else {
+	%>
+	<form method="POST" action="../CursNoSessio">
+	<%
+	}
+	%>
 		<div class="container">
 		  <div class="row">
 			<div class="col-sm">
@@ -142,7 +151,16 @@
 		</div>
 	</form>
 
+	<%
+	if (session.getAttribute("usuari") != null) { %>
 	<form method="GET" action="../Curs">
+	<% 
+	} else {
+	%>
+	<form method="GET" action="../CursNoSessio">
+	<%
+	}
+	%>
 		<div class="container">
 			<div class="row rowform">				
 				<%

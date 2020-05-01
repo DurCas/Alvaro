@@ -18,8 +18,8 @@ import java.util.logging.Level;
 /**
  * Servlet implementation class Curs
  */
-@WebServlet("/Curs")
-public class Curs extends HttpServlet {
+@WebServlet("/CursNoSessio")
+public class CursNoSessio extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getLogger("paunoticies.Curs");
        
@@ -55,7 +55,7 @@ public class Curs extends HttpServlet {
 		);
 	 */
 	
-    public Curs() {
+    public CursNoSessio() {
         super();
     }
     
@@ -78,8 +78,7 @@ public class Curs extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession sesion = request.getSession(true);
-		String usuari 	= (String)sesion.getAttribute("usuari");
+		String usuari		= (String)request.getParameter("usuget");
 		String comentaris	= (String)request.getParameter("comment");
 		if (usuari.equals("") || comentaris.equals("")){		
 			String redirectURL = "http://localhost:8080/paunoticies/html/cursos.jsp";
@@ -108,8 +107,7 @@ public class Curs extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession sesion = request.getSession(true);
-		String usuari 	= (String)sesion.getAttribute("usuari");
+		String usuari	= (String)request.getParameter("usupost");
 		String curs		= (String)request.getParameter("curs");
 		Integer c 		= Integer.parseInt(curs);
 		String pagar	= (String)request.getParameter("pagar");
