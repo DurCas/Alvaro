@@ -34,7 +34,7 @@ public class Login extends HttpServlet {
     }
     
     @SuppressWarnings("squid:S2115")
-	public Statement connect(){
+	public Statement connect() throws NullPointerException{
 		Statement st=null;
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -42,9 +42,14 @@ public class Login extends HttpServlet {
 			st=conn.createStatement();		
 		} catch(Exception e) {
 			LOGGER.log(Level.SEVERE, e.getMessage());
+		} 
+		try {
+			st.close();
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		return st;	
-	}	
+	}
 	
 	public int checkRegex(String usuari, String contra){	
 		Pattern patroUsu	= Pattern.compile("[A-Za-z0-9]{8,}");

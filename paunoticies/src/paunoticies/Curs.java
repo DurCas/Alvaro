@@ -66,9 +66,14 @@ public class Curs extends HttpServlet {
 			st=conn.createStatement();		
 		} catch(Exception e) {
 			LOGGER.log(Level.SEVERE, e.getMessage());
+		} 
+		try {
+			st.close();
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		return st;	
-	}	
+	}
     
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

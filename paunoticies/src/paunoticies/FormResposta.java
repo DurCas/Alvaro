@@ -37,9 +37,14 @@ public class FormResposta extends HttpServlet {
 			st=conn.createStatement();		
 		} catch(Exception e) {
 			LOGGER.log(Level.SEVERE, e.getMessage());
+		} 
+		try {
+			st.close();
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		return st;	
-	}		
+	}	
 
 	public int checkRegex(String usuari, String contra, String mail){	
 		Pattern patroUsu	= Pattern.compile("[A-Za-z0-9]{8,}");
