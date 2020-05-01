@@ -34,8 +34,9 @@ public class FormTest extends HttpServlet {
 	String contrasenya;
 	String mail;
 	String esperat;
+	String regExUsu="[A-Za-z0-9]{8,}";
 	
-	Pattern patroUsu	= Pattern.compile("[A-Za-z0-9]{8,}");
+	Pattern patroUsu	= Pattern.compile(regExUsu);
 	Pattern patMail 	= Pattern.compile("^[a-zA-Z0-9.!#$%&'*+\\=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
 	
 	@Test
@@ -46,7 +47,6 @@ public class FormTest extends HttpServlet {
 		Matcher matUsu	= patroUsu.matcher(usuari);
 		Matcher matCntr = patroUsu.matcher(contrasenya);
 		Matcher matMail = patMail.matcher(mail);
-		String esperat;
 		if (!matUsu.find() || !matCntr.find() || !matMail.find()){
 			esperat = "Incorrecte";
 		} else {
