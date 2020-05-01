@@ -38,11 +38,6 @@ public class FormResposta extends HttpServlet {
 		} catch(Exception e) {
 			LOGGER.log(Level.SEVERE, e.getMessage());
 		} 
-		try {
-			st.close();
-		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, e.getMessage());
-		}
 		return st;	
 	}	
 

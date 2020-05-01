@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.regex.Matcher;
@@ -28,11 +27,6 @@ public class FormTest extends HttpServlet {
 		} catch(Exception e) {
 			LOGGER.log(Level.SEVERE, e.getMessage());
 		} 
-		try {
-			st.close();
-		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, e.getMessage());
-		}
 		return st;	
 	}
 
