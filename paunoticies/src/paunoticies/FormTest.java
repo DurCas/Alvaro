@@ -30,8 +30,8 @@ public class FormTest extends HttpServlet {
 		} 
 		try {
 			st.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		return st;	
 	}
