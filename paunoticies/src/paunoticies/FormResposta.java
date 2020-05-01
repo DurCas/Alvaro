@@ -42,12 +42,10 @@ public class FormResposta extends HttpServlet {
 	}	
 
 	public int checkRegex(String usuari, String contra, String mail){	
-		String regExUsu		= "[A-Za-z0-9]{8,}";
-		String regExMail	= "^[a-zA-Z0-9.!#$%&'*+\\=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
-		Pattern patroUsu	= Pattern.compile(regExUsu);
+		Pattern patroUsu	= Pattern.compile("[A-Za-z0-9]{8,}");
 		Matcher matUsu		= patroUsu.matcher(usuari);
 		Matcher matCntr 	= patroUsu.matcher(contra);
-		Pattern patMail 	= Pattern.compile(regExMail);
+		Pattern patMail 	= Pattern.compile("^[a-zA-Z0-9.!#$%&'*+\\=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
 		Matcher matMail 	= patMail.matcher(mail);
 		if (!matUsu.find()){
 			return 1;
