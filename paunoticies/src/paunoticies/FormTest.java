@@ -34,10 +34,11 @@ public class FormTest extends HttpServlet {
 	String contrasenya;
 	String mail;
 	String esperat;
-	String regExUsu="[A-Za-z0-9]{8,}";
+	String regExUsu		= "[A-Za-z0-9]{8,}";
+	String regExMail	= "^[a-zA-Z0-9.!#$%&'*+\\=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
 	
 	Pattern patroUsu	= Pattern.compile(regExUsu);
-	Pattern patMail 	= Pattern.compile("^[a-zA-Z0-9.!#$%&'*+\\=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
+	Pattern patMail 	= Pattern.compile(regExMail);
 	
 	@Test
 	public void testFomCorrecte() {
